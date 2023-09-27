@@ -1,0 +1,110 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Models\Estudiante;
+use App\Models\Fecha;
+use App\Models\Carrera;
+use App\Models\Gestion;
+use App\Models\Kardex;
+use App\Models\Materia_Egreso;
+use App\Models\Director_Carrera;
+use Illuminate\Http\Request;
+
+class FormularioCertifEgresoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {   
+        $datos['carreras'] = Carrera::all();
+        return view('welcome', $datos);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //$datosEstudiante = request()->all();
+        //return response()->json($datosEstudiante);
+        $datosFormulario = request()->except('_token');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
+        Estudiante::insert($datosEstudiante);
+
+        $datosFecha = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'nombreEst', 'genero', 'ci', 'exp');
+        Fecha::insert($datosFecha);
+
+        $datosGestion = request()->except('_token', 'Carrera', 'numMaterias', 'anio','nombreEst', 'genero', 'ci', 'exp');
+        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->ID_FECHA;
+        $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->ID_CARRERA;
+        $datosGestion['ID_FECHA']=$fecha;
+        $datosGestion['ID_CARRERA']=$carrera;
+        Gestion::insert($datosGestion);
+
+        $datosKardex = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'genero', 'ci', 'exp');
+        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->ID_ESTUDIANTE;
+        $datosKardex['ID_ESTUDIANTE']=$estudiante;
+        $datosKardex['ID_CARRERA']=$carrera;
+        Kardex::insert($datosKardex);
+
+        $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
+        $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
+
+        if ($datosFormulario['genero'] == "Masculino") {
+            $pronombre = "el";
+            $genero_gramatical = "o";
+        }
+        else {
+            $pronombre = "la";
+            $genero_gramatical = "a";
+        }
+        
+
+        return view('pdf')->with('nombre',$datosFormulario['nombreEst'])->with('carrera',$datosFormulario['Carrera'])
+            ->with('ci',$datosFormulario['ci'])->with('exp',$datosFormulario['exp'])->with('numMaterias',$datosFormulario['numMaterias'])
+            ->with('gestion',$datosFormulario['numGestion'])->with('anio',$datosFormulario['anio'])->with('director',$directorCarrera)
+            ->with('materiaEgreso',$materiaEgreso)->with('pronombre',$pronombre)->with('generoGramatical',$genero_gramatical);
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
