@@ -11,7 +11,7 @@
     }
     .formato_general{
         font-family: Consolas;
-        background-image:url(/imagenes/Docu.png), url(/imagenes/umss.png);
+        background-image:url(/imagenes/Docu.png), url(/imagenes/logo.jpeg);
         background-size: 50rem, 5rem;
         background-repeat: no-repeat, no-repeat;
         background-position: right, center left;
