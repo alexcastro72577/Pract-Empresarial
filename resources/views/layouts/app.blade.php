@@ -30,9 +30,6 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Inicio
-                </a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +40,7 @@
                     <ul class="navbar-nav mr-auto">
                         <div class="cabecera">
                             @yield ("cabecera")
-                            <img src="/imagenes/umss.png" class="imagenCabecera" />
+                            <img src="/imagenes/umss.png" height="100" class="imagenCabecera" />
                         </div>
                     </ul>
 
@@ -52,7 +49,7 @@
                         <!-- Authentication Links -->
                         <div class="cabecera">
                             @yield ("cabecera")
-                            <img src="/imagenes/logo-fcyt.gif" class="imagenCabecera" />
+                            <img src="/imagenes/fcyt logo.jpg" width="240" class="imagenCabecera" />
                         </div>
                     </ul>
                 </div>
