@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormularioCertifEgresoController;
+use App\Http\Controllers\AdminMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 Route::resource('/', FormularioCertifEgresoController::class);
 Route::resource('/pdf', PdfController::class);
+Route::resource('/admin', AdminMenuController::class);
