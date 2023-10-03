@@ -9,6 +9,7 @@ use App\Models\Kardex;
 use App\Models\Materia_Egreso;
 use App\Models\Director_Carrera;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class FormularioCertifEgresoController extends Controller
 {
@@ -58,6 +59,8 @@ class FormularioCertifEgresoController extends Controller
 
         $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
         $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
+        $timestamp = time();
+        $fechaActual = gmdate('d  M  Y', $timestamp);
 
         if ($datosFormulario['genero'] == "Masculino") {
             $pronombre = "el";
@@ -67,12 +70,16 @@ class FormularioCertifEgresoController extends Controller
             $pronombre = "la";
             $genero_gramatical = "a";
         }
-        
+        $datosFormulario['materiaEgreso']=$materiaEgreso;
+        $datosFormulario['directorCarrera']=$directorCarrera;
+        $datosFormulario['pronombre']=$pronombre;
+        $datosFormulario['generoGramatical']=$genero_gramatical;
+        $datosFormulario['fechaActual']=$fechaActual;
 
-        return view('pdf')->with('nombre',$datosFormulario['nombreEst'])->with('carrera',$datosFormulario['Carrera'])
-            ->with('ci',$datosFormulario['ci'])->with('exp',$datosFormulario['exp'])->with('numMaterias',$datosFormulario['numMaterias'])
-            ->with('gestion',$datosFormulario['numGestion'])->with('anio',$datosFormulario['anio'])->with('director',$directorCarrera)
-            ->with('materiaEgreso',$materiaEgreso)->with('pronombre',$pronombre)->with('generoGramatical',$genero_gramatical);
+
+        $pdf = Pdf::loadView('pdf', ['nombre'=>$datosFormulario]);
+
+        return $pdf ->stream('Certificado-Finalizacion-Plan-de-Estudios.pdf');
 
     }
 

@@ -12,27 +12,27 @@
     <title>Reporte de Usuarios</title>
     <style>
         .encabezado{
-            font-size: 30px;
+            font-size: 25px;
             margin-top: 60px;
             margin-bottom: 30px;
         }
         .saludo{
             font-size: 20px;
-            margin-left: 400px;
+            margin-left: 100px;
             margin-top: 30px;
             margin-bottom: 5px;
             line-height: 300%;
         }
         .cuerpo{
             font-size: 15px;
-            margin-left: 400px;
-            margin-right: 400px;
+            margin-left: 100px;
+            margin-right: 100px;
             margin-top: 5px;
             margin-bottom: 20px;
         }
         .despedida{
             font-size: 15px;
-            margin-left: 400px;
+            margin-left: 100px;
             margin-top: 20px;
             margin-bottom: 30px;
         }
@@ -56,33 +56,25 @@
     </center>
     <p class="saludo"; style="font-size: 15px">
         <b>A quien corresponda</b>
-        <br>El suscrito, Director de la Carrera de Licenciatura en {{$carrera}},
+        <br>El suscrito, Director de la Carrera de Licenciatura en {{$nombre["Carrera"]}},
         <br><b>C E R T I F I C A:</b>
     </p>
 
-    <p class="cuerpo"><br>Que {{$pronombre}} <b>Univ. {{$nombre}}</b> con <b>C.I: {{$ci}} {{$exp}}</b>, ha  aprobado {{$numMaterias}}
-        materias del Plan de Estudios de la Carrera de Licenciatura en {{$carrera}}, hasta la gestión {{$gestion}}/{{$anio}} 
-        faltándole la materia de {{$materiaEgreso}} para la conclusión, por lo tanto está habilitad{{$generoGramatical}} para cualquier
+    <p class="cuerpo"><br>Que {{ $nombre["pronombre"] }} <b>Univ. {{ $nombre["nombreEst"] }}</b> con <b>C.I: {{ $nombre["ci"] }} {{ $nombre["exp"] }}</b>, ha  aprobado {{$nombre ["numMaterias"] }}
+        materias del Plan de Estudios de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, hasta la gestión {{ $nombre["numGestion"] }}/{{ $nombre["anio"] }} 
+        faltándole la materia de {{ $nombre["materiaEgreso"] }} para la conclusión, por lo tanto está habilitad{{ $nombre["generoGramatical"] }} para cualquier
         modalidad de titulación.
     </p>
 
-    <p class="despedida"><br>Es cuanto se informa a solicitud de {{$pronombre}} interesad{{$generoGramatical}} para fines consiguientes.</p>
+    <p class="despedida"><br>Es cuanto se informa a solicitud de {{ $nombre["pronombre"] }} interesad{{ $nombre["generoGramatical"] }} para fines consiguientes.</p>
 
     <center>
         <p class="fecha" id="current_date"> 
-         
-
-        
-            <script>
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                document.getElementById("current_date").innerHTML = "Cochabamba, " + new Date().toLocaleDateString('es-ES', options);
-            </script>
-        
-
+        Cochabamba, {{ $nombre["fechaActual"]}}
         </p>
 
-        <p class="firma">{{$director}}
-        <br><b>DIRECTOR CARR. a.i. {{$carrera}}</b></p>
+        <p class="firma">{{ $nombre["directorCarrera"]}}
+        <br><b>DIRECTOR CARR. a.i. {{ $nombre["Carrera"] }}</b></p>
     </center>
 
 </body>
