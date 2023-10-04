@@ -81,7 +81,7 @@
             <h2>FORMULARIO DE CONCLUSIÓN</h2>
             <h2 class="segtitulo">PLAN DE ESTUDIOS</h2>
             
-        <form class="form-horizontal" method="post" action="{{url('/')}}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" action="{{url('/form_egreso')}}" enctype="multipart/form-data">
             @csrf
             <font color="black">Carrera:</font> <select class="carrera" name="Carrera">
                 @foreach($carreras as $carrera)

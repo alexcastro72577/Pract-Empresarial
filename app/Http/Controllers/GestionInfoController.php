@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Carrera;
+use App\Models\Materia_Egreso;
+use App\Models\Director_Carrera;
 use Illuminate\Http\Request;
 
-class AdminMenuController extends Controller
+class GestionInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.menu_admin');
+    {   
+        return view('gestion_datos');
     }
 
     /**
@@ -27,7 +29,20 @@ class AdminMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datosEstudiante = request()->all();
+        //return response()->json($datosEstudiante);
+
+        $datosDirector_Carrera = request()->except('_token', 'nombrecarrera', 'nombmateg');
+        Director_Carrera::insert($datosDirector_Carrera);
+
+        $datosMateria_Egreso = request()->except('_token', 'nombrecarrera', 'nombredirector');
+        Materia_Egreso::insert($datosMateria_Egreso);
+
+        $datosCarrera = request()->except('_token', 'nombmateg', 'nombredirector');
+        Carrera::insert($datosCarrera);
+
+        return view('gestion_datos');
+
     }
 
     /**
