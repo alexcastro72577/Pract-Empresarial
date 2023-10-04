@@ -24,6 +24,7 @@
             line-height: 300%;
         }
         .cuerpo{
+            text-align: justify;
             font-size: 15px;
             margin-left: 100px;
             margin-right: 100px;

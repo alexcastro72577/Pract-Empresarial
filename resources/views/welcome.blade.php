@@ -106,6 +106,7 @@
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
+            <span class="error">* </span>
             <br><br>
             C.I.: <input type="text" class="CI" name="ci" value="" required>
             <span class="error">* </span>
@@ -119,8 +120,8 @@
                 <option value="PND">PND</option>
                 <option value="PSI">PSI</option>
                 <option value="BNI">BNI</option>
-            <span class="error">* </span>
             </select>
+            <span class="error">* </span>
             <br><br>
             N° Materias Aprobadas: <input type="text" class="materias" name="numMaterias" value="" required>
             <span class="error">* </span>
