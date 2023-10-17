@@ -59,8 +59,25 @@ class FormularioCertifEgresoController extends Controller
 
         $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
         $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
-        $timestamp = time();
-        $fechaActual = gmdate('d  M  Y', $timestamp);
+        
+        $fecha_dia=date("d");
+        $fecha_mes=date("m");
+        $fecha_year=date("Y");
+        $mes_year=[
+            "01"=>"Enero",
+            "02"=>"Febrero",
+            "03"=>"Marzo",
+            "04"=>"Abril",
+            "05"=>"Mayo",
+            "06"=>"Junio",
+            "07"=>"Julio",
+            "08"=>"Agosto",
+            "09"=>"Septiembre",
+            "10"=>"OCtubre",
+            "11"=>"Noviembre",
+            "12"=>"Diciembre"
+        ];
+        $fechaActual=$fecha_dia." de ".$mes_year[$fecha_mes]." de ".$fecha_year;
 
         if ($datosFormulario['genero'] == "Masculino") {
             $pronombre = "el";
