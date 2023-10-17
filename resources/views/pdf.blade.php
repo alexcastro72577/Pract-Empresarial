@@ -75,7 +75,7 @@
         </p>
 
         <p class="firma">{{ $nombre["directorCarrera"]}}
-        <br><b>DIRECTOR CARR. a.i. {{ $nombre["Carrera"] }}</b></p>
+        <br><b>DIRECTOR CARR. {{ $nombre["Carrera"] }}</b></p>
     </center>
 
 </body>

@@ -76,6 +76,7 @@
     </head>
 
     <body class="formato_general">
+        <a href="/admin" class="active">Regresar al menu</a>
         <div class="container">
 
             <h2>FORMULARIO DE CONCLUSIÓN</h2>

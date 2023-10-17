@@ -48,9 +48,10 @@
     </style>
 </head>
 <body class="formato_gestion">
+    <a href="/admin" class="active">Regresar al Menu</a>
     <div class="container">
         <h2 class="titulo">Gestión de Datos</h2>
-        <form class="form_horizontal" method="post" action="{{url('/admin')}}" enctype="multipart/form-data">
+        <form class="form_horizontal" method="post" action="{{url('/gestionInfo')}}" enctype="multipart/form-data">
         @csrf
             Nueva Carrera: <input type="text" class="ncarrera" name="nombrecarrera" value="" required>
             <span class="error">* </span>
@@ -63,6 +64,37 @@
             <br><br>
             <button type="submit" class="btn btn-primary">Guardar Datos</button>
         </form>
+        
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Director de Carrera</th>
+                    <th scope="col">Carrera</th>
+                    <th scope="col">Materia de Egreso</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($datos as $dato)
+                <tr>      
+                    <th scope="row">{{ $dato-> NOMBREDIRECTOR }}</th>
+                    <th scope="row">{{ $dato-> NOMBRECARRERA }}</th>
+                    <th scope="row">{{ $dato-> NOMBMATEG }}</th>
+                    <td>
+                        <a href="{{url('gestionInfo/'.$dato-> id.'/edit' )}}" class = "btn">
+                            Editar
+                        </a>
+                        <form action="{{url('gestionInfo/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+               
+            </tbody>
+        </table>
     </div>
 </body>
 @endsection
