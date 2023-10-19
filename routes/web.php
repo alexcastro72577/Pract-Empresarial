@@ -6,6 +6,8 @@ use App\Http\Controllers\GestionInfoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserMenuController;
 use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\pdfSolicitudNombrTutor;
+use App\Http\Controllers\SolicitudNombrTutor;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,6 @@ Route::resource('/pdf', PdfController::class);
 Route::resource('/gestionInfo', GestionInfoController::class);
 Route::resource('/usuario', UserMenuController::class);
 Route::resource('/admin', AdminMenuController::class);
+Route::resource('/snombtutor',SolicitudNombrTutor::class);
+Route::resource('/pdfSNT', pdfSolicitudNombrTutor::class);
 Auth::routes();
