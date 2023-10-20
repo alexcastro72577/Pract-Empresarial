@@ -17,7 +17,7 @@
         background-position: right, center left;
     }
     .segtitulo{
-        margin-left:70px
+        margin-left:38px
     }
     .carrera{
         border-radius: 5px;
@@ -62,12 +62,12 @@
         <a href="/admin" class="active">Regresar al menu</a>
         <div class="container">
 
-            <h2>FORMULARIO DE SOLICITUD</h2>
-            <h2 class="segtitulo">NOMBRAMIENTO DE TUTOR</h2>
+            <h2>FORMULARIO DE INFORME</h2>
+            <h2 class="segtitulo">DE CONVALIDACIÓN</h2>
             
-        <form class="form-horizontal" method="post" action="{{url('/snombtutor')}}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" action="{{url('/inf_conv')}}" enctype="multipart/form-data">
             @csrf
-            <font color="black">Carrera:</font> <select class="carrera" name="Carrera">
+            <font color="black">Carrera a convalidar:</font> <select class="carrera" name="Carrera">
                 @foreach($carreras as $carrera)
                 <option  value="{{$carrera->NOMBRECARRERA}}">{{$carrera->NOMBRECARRERA}}</option>
                 @endforeach

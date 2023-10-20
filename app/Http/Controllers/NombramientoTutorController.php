@@ -8,7 +8,7 @@ use App\Models\Carrera;
 use App\Models\Director_Carrera;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class SolicitudNombrTutor extends Controller
+class NombramientoTutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class SolicitudNombrTutor extends Controller
     public function index()
     {
         $datos['carreras'] = Carrera::all();
-        return view('solicitudNombTutor', $datos);
+        return view('nombTutorMenu', $datos);
     }
 
     /**
@@ -72,9 +72,9 @@ class SolicitudNombrTutor extends Controller
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
 
-        $pdf = Pdf::loadView('pdfSNTutor', ['nombre'=>$datosFormulario]);
+        $pdf = Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario]);
 
-        return $pdf ->stream('Solicitud-Nombramiento-Tutor.pdf');
+        return $pdf ->stream('Nombramiento_Tutor.pdf');
     }
 
     /**
