@@ -12,21 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     
-    public function roles(){
-        return $this->belongsToMany('App\Rol');
-    }
-     public function authorizeRoles($roles){
-         if($this->hasAnyRole($roles)){
-            return true;
-         }
-         abort(401, "This action shall no pass");
-     }
-     public function hasAnyRole($roles){
-         if(auth()->user()->rol == 'Docente-Administrador'){
-             return true;
-         }
-         return false;
-     }
 
     /**
      * The attributes that are mass assignable.

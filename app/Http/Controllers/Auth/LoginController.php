@@ -36,11 +36,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     public function redirectPath(){
-        if(auth()->user()->rol == 'Docente-Administrador'){
+        if(auth()->user()->rol == 'Administrador'){
             return '/admin';
         }
         else{
-            if(auth()->user()->rol == 'Usuario' || 'Documentador' || 'Representante Legal'){
+            if(auth()->user()->rol == 'Usuario'){
                 return '/usuario';
         }
         }

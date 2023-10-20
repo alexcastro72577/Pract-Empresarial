@@ -21,9 +21,15 @@ use App\Http\Controllers\AdminMenuController;
 Route::get('/', function () {
     return view('inicio');
 });
-Route::resource('/form_egreso', FormularioCertifEgresoController::class);
-Route::resource('/pdf', PdfController::class);
-Route::resource('/gestionInfo', GestionInfoController::class);
-Route::resource('/usuario', UserMenuController::class);
-Route::resource('/admin', AdminMenuController::class);
+
+Route::middleware(["auth"])->group(function () {
+    Route::resource('/form_egreso', FormularioCertifEgresoController::class);
+    Route::resource('/pdf', PdfController::class);
+    Route::resource('/usuario', UserMenuController::class);
+});
+
+Route::middleware(["auth", "solo_usuario_administrador"])->group(function () {
+	Route::resource('/gestionInfo', GestionInfoController::class);
+    Route::resource('/admin', AdminMenuController::class);
+});
 Auth::routes();

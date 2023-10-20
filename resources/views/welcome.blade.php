@@ -76,7 +76,10 @@
     </head>
 
     <body class="formato_general">
-        <a href="/admin" class="active">Regresar al menu</a>
+
+        <a href="/usuario" class="active" <?php if ( Auth::user()-> rol == "Administrador"){ ?> style="display: none;" <?php   } ?> > Regresar al Menú </a>
+        <a href="/admin" class="active" <?php if ( Auth::user()-> rol == "Usuario"){ ?> style="display: none;" <?php   } ?> > Regresar al Menú </a>
+
         <div class="container">
 
             <h2>FORMULARIO DE CONCLUSIÓN</h2>
