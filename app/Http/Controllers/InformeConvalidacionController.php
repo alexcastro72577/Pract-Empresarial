@@ -35,7 +35,7 @@ class InformeConvalidacionController extends Controller
         $datosFormulario = request()->except('_token');
         $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
         Estudiante::insert($datosEstudiante);
-        $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
+        $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->NOMBRECARRERA;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");

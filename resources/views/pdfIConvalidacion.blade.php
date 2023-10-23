@@ -46,6 +46,10 @@
             margin-left: 50px;
             margin-right: 50px
         }
+        .dedonde{}
+        .adonde{
+            text-transform: uppercase
+        }
         .cuerpo{
             text-align: justify;
             font-size: 15px;
@@ -76,8 +80,8 @@
         </p>
     </div>
     <p class="tabla">
-        DE: CARRERA_ANTIGUA UNIVERSIDAD_PREVIA<br>
-        A: {{$nombre["Carrera"]}} UNIVERSIDAD MAYOR DE SAN SIMÓN
+        <b class="dedonde">DE: CARRERA_ANTIGUA UNIVERSIDAD_PREVIA</b><br>
+        <b class="adonde">A: {{$nombre["Carrera"]}} UNIVERSIDAD MAYOR DE SAN SIMÓN</b>
     </p>
     <p class="cuerpo">
         Habiendo revisado la solicitud de convalidación de {{$nombre["pronombre"]}} universitari{{$nombre["generoGramatical"]}}
