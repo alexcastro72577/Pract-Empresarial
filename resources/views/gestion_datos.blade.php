@@ -48,7 +48,7 @@
     </style>
 </head>
 <body class="formato_gestion">
-    <a href="/admin" class="active">Regresar al Menu</a>
+    <a href="/admin" class="active">Regresar al menu</a>
     <div class="container">
         <h2 class="titulo">Gestión de Datos</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionInfo')}}" enctype="multipart/form-data">
@@ -65,7 +65,7 @@
             <button type="submit" class="btn btn-primary">Guardar Datos</button>
         </form>
         
-        <table class="table table-dark table-striped">
+        <table class="table table-striped table-dark">
             <thead>
                 <tr>
                     <th scope="col">Director de Carrera</th>
