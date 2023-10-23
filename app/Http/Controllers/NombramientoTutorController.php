@@ -1,25 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Estudiante;
-use App\Models\Fecha;
-use App\Models\Carrera;
-use App\Models\Gestion;
-use App\Models\Kardex;
-use App\Models\Materia_Egreso;
-use App\Models\Director_Carrera;
+
 use Illuminate\Http\Request;
+use App\Models\Estudiante;
+use App\Models\Carrera;
+use App\Models\Director_Carrera;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class FormularioCertifEgresoController extends Controller
+class NombramientoTutorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         $datos['carreras'] = Carrera::all();
-        return view('welcome', $datos);
+        return view('nombTutorMenu', $datos);
     }
 
     /**
@@ -35,29 +32,11 @@ class FormularioCertifEgresoController extends Controller
      */
     public function store(Request $request)
     {
-        //$datosEstudiante = request()->all();
-        //return response()->json($datosEstudiante);
         $datosFormulario = request()->except('_token');
         $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
         Estudiante::insert($datosEstudiante);
-
-        $datosFecha = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'nombreEst', 'genero', 'ci', 'exp');
-        Fecha::insert($datosFecha);
-
-        $datosGestion = request()->except('_token', 'Carrera', 'numMaterias', 'anio','nombreEst', 'genero', 'ci', 'exp');
-        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->ID_FECHA;
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
-        $datosGestion['ID_FECHA']=$fecha;
-        $datosGestion['ID_CARRERA']=$carrera;
-        Gestion::insert($datosGestion);
 
-        $datosKardex = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'genero', 'ci', 'exp');
-        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->ID_ESTUDIANTE;
-        $datosKardex['ID_ESTUDIANTE']=$estudiante;
-        $datosKardex['ID_CARRERA']=$carrera;
-        Kardex::insert($datosKardex);
-
-        $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
         $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
         
         $fecha_dia=date("d");
@@ -80,24 +59,22 @@ class FormularioCertifEgresoController extends Controller
         $fechaActual=$fecha_dia." de ".$mes_year[$fecha_mes]." de ".$fecha_year;
 
         if ($datosFormulario['genero'] == "Masculino") {
-            $pronombre = "el";
+            $pronombre = "l";
             $genero_gramatical = "o";
         }
         else {
-            $pronombre = "la";
+            $pronombre = " la";
             $genero_gramatical = "a";
         }
-        $datosFormulario['materiaEgreso']=$materiaEgreso;
+
         $datosFormulario['directorCarrera']=$directorCarrera;
+        $datosFormulario['fechaActual']=$fechaActual;
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
-        $datosFormulario['fechaActual']=$fechaActual;
 
+        $pdf = Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario]);
 
-        $pdf = Pdf::loadView('pdf', ['nombre'=>$datosFormulario]);
-
-        return $pdf ->stream('Certificado-Finalizacion-Plan-de-Estudios.pdf');
-
+        return $pdf ->stream('Nombramiento_Tutor.pdf');
     }
 
     /**

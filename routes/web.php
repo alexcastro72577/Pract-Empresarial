@@ -6,6 +6,10 @@ use App\Http\Controllers\GestionInfoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserMenuController;
 use App\Http\Controllers\AdminMenuController;
+use App\Http\Controllers\NombramientoTutorController;
+use App\Http\Controllers\PdfNombramientoTutorController;
+use App\Http\Controllers\InformeConvalidacionController;
+use App\Http\Controllers\PdfInformeConvalidacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +30,8 @@ Route::resource('/pdf', PdfController::class);
 Route::resource('/gestionInfo', GestionInfoController::class);
 Route::resource('/usuario', UserMenuController::class);
 Route::resource('/admin', AdminMenuController::class);
+Route::resource('/nombtutor', NombramientoTutorController::class);
+Route::resource('/pdfNT', PdfNombramientoTutorController::class);
+Route::resource('/inf_conv', InformeConvalidacionController::class);
+Route::resource('/pdfinfconv', PdfInformeConvalidacionController::class);
 Auth::routes();
