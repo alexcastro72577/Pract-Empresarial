@@ -37,16 +37,7 @@
       border-color: #51A9FF
     }
     .gestion{
-      margin-left:70px
-    }
-    .b{
-      height:50px;
-      width:150px;
-      padding:2px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 10px gray;
-      background-color: #51A9FF;
-      border-color: #51A9FF
+      margin-left:40px
     }
     </style>
 </head>
@@ -66,7 +57,7 @@
       </div>
       <br><br>
       <div class="gestion">
-        <button type="button" class="btn btn-primary b"  onclick="location='/gestionInfo'" id="b3">Gestionamiento<br> de Informacion</button>
+        <button type="button" class="btn btn-primary a" id="b3" onclick="location='/gestionInfo'">Gestionamiento<br> de Informacion</button>
       </div>
     </div>
   </div>
