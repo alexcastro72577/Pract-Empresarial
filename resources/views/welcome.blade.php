@@ -41,6 +41,12 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .apellido{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
     .genero{
         border-radius: 5px;
         border:2px solid;
@@ -103,9 +109,14 @@
             Año: <input type="text" class="año" name="anio" value="" required>
             <span class="error">* </span>
             <br><br>
-            Nombre Completo: <input type="text" class="nombre" name="nombreEst" value="" required>
+            Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
             <span class="error">* </span>
             <br><br>
+
+            Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
+            <span class="error">* </span>
+            <br><br>
+
             <font color="black">Género:</font> <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
