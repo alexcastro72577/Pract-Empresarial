@@ -59,7 +59,7 @@
             Nueva Materia de Egreso: <input type="text" class="nmateria" name="nombmateg" value="" required>
             <span class="error">* </span>
             <br><br>
-            Nuevo Director de Carrera: <input type="text" class="ndirector" name="nombredirector" value="" required>
+            Nuevo Director de Carrera: <input type="text" class="ndirector" name="nombreautoridad" value="" required>
             <span class="error">* </span>
             <br><br>
             <button type="submit" class="btn btn-primary">Guardar Datos</button>
@@ -68,16 +68,16 @@
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Director de Carrera</th>
-                    <th scope="col">Carrera</th>
-                    <th scope="col">Materia de Egreso</th>
+                    <th scope="col">Autoridades</th>
+                    <th scope="col">Carreras</th>
+                    <th scope="col">Materias de Egreso</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($datos as $dato)
                 <tr>      
-                    <th scope="row">{{ $dato-> NOMBREDIRECTOR }}</th>
+                    <th scope="row">{{ $dato-> NOMBREAUTORIDAD }}</th>
                     <th scope="row">{{ $dato-> NOMBRECARRERA }}</th>
                     <th scope="row">{{ $dato-> NOMBMATEG }}</th>
                     <td>

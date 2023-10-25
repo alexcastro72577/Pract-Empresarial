@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Director_Carrera;
+use App\Models\Autoridade;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class NombramientoTutorController extends Controller
@@ -37,7 +37,7 @@ class NombramientoTutorController extends Controller
         Estudiante::insert($datosEstudiante);
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
-        $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
+        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");
