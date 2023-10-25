@@ -45,14 +45,14 @@ class FormularioCertifEgresoController extends Controller
         Fecha::insert($datosFecha);
 
         $datosGestion = request()->except('_token', 'Carrera', 'numMaterias', 'anio','nombreEst', 'genero', 'ci', 'exp');
-        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->ID_FECHA;
+        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->id;
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
         $datosGestion['ID_FECHA']=$fecha;
         $datosGestion['ID_CARRERA']=$carrera;
         Gestion::insert($datosGestion);
 
         $datosKardex = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'genero', 'ci', 'exp');
-        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->ID_ESTUDIANTE;
+        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
         $datosKardex['ID_ESTUDIANTE']=$estudiante;
         $datosKardex['ID_CARRERA']=$carrera;
         Kardex::insert($datosKardex);
