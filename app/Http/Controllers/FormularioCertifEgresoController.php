@@ -7,7 +7,7 @@ use App\Models\Carrera;
 use App\Models\Gestion;
 use App\Models\Kardex;
 use App\Models\Materia_Egreso;
-use App\Models\Director_Carrera;
+use App\Models\Autoridade;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -45,20 +45,20 @@ class FormularioCertifEgresoController extends Controller
         Fecha::insert($datosFecha);
 
         $datosGestion = request()->except('_token', 'Carrera', 'numMaterias', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
-        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->ID_FECHA;
+        $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->id;
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
         $datosGestion['ID_FECHA']=$fecha;
         $datosGestion['ID_CARRERA']=$carrera;
         Gestion::insert($datosGestion);
 
         $datosKardex = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
-        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->ID_ESTUDIANTE;
+        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
         $datosKardex['ID_ESTUDIANTE']=$estudiante;
         $datosKardex['ID_CARRERA']=$carrera;
         Kardex::insert($datosKardex);
 
         $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
-        $directorCarrera = Director_Carrera::where('id_carrera','=', $carrera)->first()->NOMBREDIRECTOR;
+        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Director_Carrera;
+use App\Models\Autoridade;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class InformeConvalidacionController extends Controller

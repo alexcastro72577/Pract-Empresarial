@@ -53,7 +53,7 @@
         <form class="form_horizontal" method="post" action="{{url('/gestionInfo/'.$datosGeneral->id )}}" enctype="multipart/form-data">
         @csrf
         {{method_field('PATCH')}}
-            Nombre Director de Carrera: <input type="text" class="ndirector" name="NOMBREDIRECTOR" value=" {{ $datosGeneral->NOMBREDIRECTOR }}" required>
+            Nombre Director de Carrera: <input type="text" class="ndirector" name="NOMBREAUTORIDAD" value=" {{ $datosGeneral->NOMBREAUTORIDAD }}" required>
             <span class="error">* </span>
             <br><br>
             Nombre de la Materia de Egreso: <input type="text" class="nmateria" name="NOMBMATEG" value=" {{ $datosMateria->NOMBMATEG }}" required>
