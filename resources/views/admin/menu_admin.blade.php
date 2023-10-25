@@ -17,10 +17,15 @@
     .Est{
       margin-left:300px;
     }
-    .anun{
+    .certificado{
       margin-top:80px;
+      margin-left:40px
+    }
+    .nombramiento{
       margin-left:40px;
-      margin-bottom:50px;
+    }
+    .informe{
+      margin-left:40px;
     }
     .a{
       height:50px;
@@ -31,35 +36,28 @@
       background-color: #51A9FF;
       border-color: #51A9FF
     }
-    .anota{
-      margin-top:50px;
-      margin-left:70px;
-    }
-    .b{
-      height:50px;
-      width:150px;
-      padding:2px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 10px gray;
-      background-color: #51A9FF;
-      border-color: #51A9FF
+    .gestion{
+      margin-left:40px
     }
     </style>
 </head>
 <body class="admin_format">
 <div class="Est">
     <h2>MENU ADMINISTRADOR</h2>
-      <div class="anun">
-        <div>
-          <img src="../imagenes/fe3.png" style="width:12%; margin-left:40px">
-        </div>
+      <div class="certificado">
         <button type="button" class="btn btn-primary a" id="b1" onclick="location='/form_egreso'">Certificado Finalizacion<br> de Estudios</button>
       </div>
-      <div class="anota">
-        <div>
-          <img src="../imagenes/lista.png" style="width:10%; margin-left:15px">
-        </div>
-        <button type="button" class="btn btn-primary b"  onclick="location='/gestionInfo'" id="b3">Gestionamiento<br> de Informacion</button>
+      <br><br>
+      <div class="nombramiento">
+        <button type="button" class="btn btn-primary a" id="b1" onclick="location='/nombtutor'">Nombramiento<br>de Tutor</button>
+      </div>
+      <br><br>
+      <div class="informe">
+        <button type="button" class="btn btn-primary a" id="b1" onclick="location='/inf_conv'">Informe de<br>Convalidación</button>
+      </div>
+      <br><br>
+      <div class="gestion">
+        <button type="button" class="btn btn-primary a" id="b3" onclick="location='/gestionInfo'">Gestionamiento<br> de Informacion</button>
       </div>
     </div>
   </div>

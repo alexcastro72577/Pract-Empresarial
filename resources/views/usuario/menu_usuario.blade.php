@@ -17,10 +17,15 @@
     .Est{
       margin-left:330px
     }
-    .anun{
+    .certificado{
       margin-top:150px;
-      margin-left:10px;
-      margin-bottom:50px;
+      margin-left:10px
+    }
+    .infconv{
+      margin-left:10px
+    }
+    .nombtut{
+      margin-left:10px
     }
     .btn{
       height:50px;
@@ -36,13 +41,17 @@
 <body class="user_format">
 <div class="Est">
     <h2>MENU SECRETARI@</h2>
-      <div class="anun">
-        <div>
-          <img src="../imagenes/fe3.png" style="width:12%; margin-left:40px">
-        </div>
+      <div class="certificado">
         <button type="button" class="btn btn-primary" id="b1" onclick="location='/form_egreso'">Certificado Finalizacion<br> de Estudios</button>
       </div>
-    </div>
-  </div>
+      <br><br>
+      <div class="nombtut">
+        <button type="button" class="btn btn-primary" id="b1" onclick="location='/nombtutor'">Nombramiento<br>de Tutor</button>
+      </div>
+      <br><br>
+      <div class="infconv">
+        <button type="button" class="btn btn-primary" id="b1" onclick="location='/inf_conv'">Informe de<br>Convalidación</button>
+      </div>
+</div>
 </body>
 @endsection

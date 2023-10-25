@@ -16,6 +16,13 @@
         background-repeat: no-repeat, no-repeat;
         background-position: right, center left;
     }
+    .active{
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px gray;
+        background-color: #51A9FF;
+        border-color: #51A9FF;
+        color: #FFFFFF
+    }
     .segtitulo{
         margin-left:70px
     }
@@ -36,6 +43,12 @@
         box-shadow: 5px 5px 10px gray
     }
     .nombre{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .apellido{
         width:250px;
         border-radius: 5px;
         border:2px solid;
@@ -63,7 +76,7 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
-    .btn{
+    .b{
         margin-top:50px;
         margin-left:120px;
         border-radius: 10px;
@@ -77,8 +90,8 @@
 
     <body class="formato_general">
 
-        <a href="/usuario" class="active" <?php if ( Auth::user()-> rol == "Administrador"){ ?> style="display: none;" <?php   } ?> > Regresar al Menú </a>
-        <a href="/admin" class="active" <?php if ( Auth::user()-> rol == "Usuario"){ ?> style="display: none;" <?php   } ?> > Regresar al Menú </a>
+        <button class="btn btn-primary active" onclick="location='/usuario'" <?php if ( Auth::user()-> rol == "Administrador"){ ?> style="display: none;" <?php   } ?> > Regresar al<br>Menú Principal</button>
+        <button class="btn btn-primary active" onclick="location='/admin'" <?php if ( Auth::user()-> rol == "Usuario"){ ?> style="display: none;" <?php   } ?> > Regresar al<br>Menú Principal</button>
 
         <div class="container">
 
@@ -103,9 +116,14 @@
             Año: <input type="text" class="año" name="anio" value="" required>
             <span class="error">* </span>
             <br><br>
-            Nombre Completo: <input type="text" class="nombre" name="nombreEst" value="" required>
+            Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
             <span class="error">* </span>
             <br><br>
+
+            Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
+            <span class="error">* </span>
+            <br><br>
+
             <font color="black">Género:</font> <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
@@ -130,7 +148,7 @@
             N° Materias Aprobadas: <input type="text" class="materias" name="numMaterias" value="" required>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary">Generar Carta</button>  
+            <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>
     </body>

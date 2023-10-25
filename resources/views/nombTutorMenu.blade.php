@@ -16,6 +16,13 @@
         background-repeat: no-repeat, no-repeat;
         background-position: right, center left;
     }
+    .active{
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px gray;
+        background-color: #51A9FF;
+        border-color: #51A9FF;
+        color: #FFFFFF
+    }
     .segtitulo{
         margin-left:25px
     }
@@ -46,7 +53,7 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
-    .btn{
+    .b{
         margin-top:50px;
         margin-left:120px;
         border-radius: 10px;
@@ -59,7 +66,8 @@
     </head>
 
     <body class="formato_general">
-        <a href="/admin" class="active">Regresar al menu</a>
+        <button class="btn btn-primary active" onclick="location='/usuario'" <?php if ( Auth::user()-> rol == "Administrador"){ ?> style="display: none;" <?php   } ?> > Regresar al<br>Menú Principal</button>
+        <button class="btn btn-primary active" onclick="location='/admin'" <?php if ( Auth::user()-> rol == "Usuario"){ ?> style="display: none;" <?php   } ?> > Regresar al<br>Menú Principal</button>
         <div class="container">
 
             <h2>FORMULARIO DE DESIGNACIÓN</h2>
@@ -99,7 +107,7 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary">Generar Carta</button>  
+            <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>
     </body>
