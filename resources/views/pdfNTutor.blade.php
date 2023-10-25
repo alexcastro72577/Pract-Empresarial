@@ -72,7 +72,7 @@
     <p class="cuerpo">
         De mi consideración:<br>
         <br>
-        Por la presente, comunico a Ud. que, a solicitud de{{$nombre["pronombre"]}} Universitario <b>{{$nombre["nombreEst"]}}</b>
+        Por la presente, comunico a Ud. que, a solicitud de{{$nombre["pronombre"]}} Universitario <b>{{$nombre["nombreEst"]}} {{$nombre["apellidoEst"]}}</b>
         de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, ha sido designado(a) Tutor del Proyecto de Grado titulado:
         <b>"NOMBRE DE PROYECTO"</b>.<br>
         <br>

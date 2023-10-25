@@ -119,11 +119,9 @@
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
             <span class="error">* </span>
             <br><br>
-
             Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
             <span class="error">* </span>
             <br><br>
-
             <font color="black">Género:</font> <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
