@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
 use App\Models\Autoridade;
+use App\Models\Proyecto_Grado;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class NombramientoTutorController extends Controller
@@ -33,11 +34,15 @@ class NombramientoTutorController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codSidoc');
         Estudiante::insert($datosEstudiante);
+
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
         $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+
+        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
+        Proyecto_Grado::insert($datosProyecto);
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");

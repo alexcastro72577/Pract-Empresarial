@@ -6,8 +6,8 @@
     <style>
 
     .form-horizontal{
-        margin-top:70px;
-        margin-bottom:100px
+        margin-top:35px;
+        margin-bottom:50px
     }
     .formato_general{
         font-family: Consolas;
@@ -29,9 +29,15 @@
     .carrera{
         border-radius: 5px;
         border:2px solid;
-        box-shadow: 5px 5px 10px gray;
+        box-shadow: 5px 5px 10px gray
     }
     .nombre{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .apellido{
         width:250px;
         border-radius: 5px;
         border:2px solid;
@@ -53,9 +59,21 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .nombreproy{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .codsid{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
     .b{
-        margin-top:50px;
-        margin-left:120px;
+        margin-top: 25px;
+        margin-left: 120px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;
         background-color: #51A9FF;
@@ -108,6 +126,12 @@
                 <option value="PSI">PSI</option>
                 <option value="BNI">BNI</option>
             </select>
+            <span class="error">* </span>
+            <br><br>
+            Nombre de Proyecto: <input type="text" class="nombreproy" name="nombreProyecto" value="" required>
+            <span class="error">* </span>
+            <br><br>
+            Codigo SIDOC: <input type="text" class="codsid" name="codSidoc" value="" required>
             <span class="error">* </span>
             <br><br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
