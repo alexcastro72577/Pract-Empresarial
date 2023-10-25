@@ -38,17 +38,25 @@
             margin-left: 45px
         }
         .referencia{
+            text-transform: uppercase;
             margin-left: 45px
         }
         .tabla{
+            text-transform: uppercase;
             font-size: 15px;
             margin-bottom: 50px;
             margin-left: 50px;
-            margin-right: 50px
+            margin-right: 50px;
+            width: 85% 
         }
-        .dedonde{}
-        .adonde{
-            text-transform: uppercase
+        .columna2{
+            text-align: center
+        }
+        .columna3{
+            text-align: center
+        }
+        .th,td{
+            border: 1px dashed #000 
         }
         .cuerpo{
             text-align: justify;
@@ -76,13 +84,21 @@
         </p>
         <b>REF.:</b> Trámite de Convalidación<br>
         <p class="referencia">
-            <b>{{$nombre["nombreEst"]}}</b>
+            <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
         </p>
     </div>
-    <p class="tabla">
-        <b class="dedonde">DE: CARRERA_ANTIGUA UNIVERSIDAD_PREVIA</b><br>
-        <b class="adonde">A: {{$nombre["Carrera"]}} UNIVERSIDAD MAYOR DE SAN SIMÓN</b>
-    </p>
+    <table class="tabla">
+        <tr>
+            <td><b>DE:</b></td>
+            <td class="columna2"><b>CARRERA ANTIGUA</b></td>
+            <td class="columna3"><b>ANTIGUA UNIVERSIDAD</b></td>
+        </tr>
+        <tr>
+            <td><b>A:</b></td>
+            <td class="columna2"><b>{{$nombre["Carrera"]}}</b></td>
+            <td class="columna3"><b>UNIVERSIDAD MAYOR DE SAN SIMÓN</b></td>
+        </tr>
+    </table>
     <p class="cuerpo">
         Habiendo revisado la solicitud de convalidación de {{$nombre["pronombre"]}} universitari{{$nombre["generoGramatical"]}}
         de referencia, informo a usted, que no se encontró materia para convalidar en el pensum de la carrera, por lo tanto no

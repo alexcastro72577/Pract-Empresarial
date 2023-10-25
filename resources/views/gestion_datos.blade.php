@@ -11,6 +11,12 @@
         background-repeat: no-repeat, no-repeat;
         background-position: 820px 110px , 0px 400px;
     }
+    .regreso{
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px gray;
+        background-color: #51A9FF;
+        border-color: #51A9FF
+    }
     .titulo{
         margin-top:50px;
         margin-left:80px
@@ -37,7 +43,7 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
-    .btn{
+    .guardar{
         margin-top:50px;
         margin-left:150px;
         border-radius: 10px;
@@ -48,7 +54,7 @@
     </style>
 </head>
 <body class="formato_gestion">
-    <a href="/admin" class="active">Regresar al menu</a>
+    <button class="btn btn-primary regreso" onclick="location='/admin'">Regresar al<br>Menú Principal</button>
     <div class="container">
         <h2 class="titulo">Gestión de Datos</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionInfo')}}" enctype="multipart/form-data">
@@ -62,7 +68,7 @@
             Nuevo Director de Carrera: <input type="text" class="ndirector" name="nombredirector" value="" required>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary">Guardar Datos</button>
+            <button type="submit" class="btn btn-primary guardar">Guardar Datos</button>
         </form>
         
         <table class="table table-striped table-dark">
