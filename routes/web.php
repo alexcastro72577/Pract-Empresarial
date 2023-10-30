@@ -10,6 +10,7 @@ use App\Http\Controllers\NombramientoTutorController;
 use App\Http\Controllers\PdfNombramientoTutorController;
 use App\Http\Controllers\InformeConvalidacionController;
 use App\Http\Controllers\PdfInformeConvalidacionController;
+use App\Http\Controllers\RepositorioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware(["auth"])->group(function () {
 Route::middleware(["auth", "solo_usuario_administrador"])->group(function () {
 	Route::resource('/gestionInfo', GestionInfoController::class);
     Route::resource('/admin', AdminMenuController::class);
+    Route::resource('/repositorio', RepositorioController::class);
 });
 
 Auth::routes();
