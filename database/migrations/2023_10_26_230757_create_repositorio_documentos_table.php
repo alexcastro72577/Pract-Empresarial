@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proyecto_grados', function (Blueprint $table) {
+        Schema::create('repositorio__documentos', function (Blueprint $table) {
             $table->id();
-            $table->string('codSidoc');
-            $table->string('nombreProyecto');
-            $table->Integer('id_fecha');
             $table->Integer('id_estudiante');
-            $table->foreign('id_fecha')->references('id')->on('fechas');
+            $table->string('tipoDocumento');
+            $table->string('documento');
             $table->foreign('id_estudiante')->references('id')->on('estudiantes');
             $table->timestamps();
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proyecto_grados');
+        Schema::dropIfExists('repositorio__documentos');
     }
 };
