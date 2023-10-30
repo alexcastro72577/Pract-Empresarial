@@ -8,8 +8,10 @@ use App\Models\Gestion;
 use App\Models\Kardex;
 use App\Models\Materia_Egreso;
 use App\Models\Autoridade;
+use App\Models\Repositorio_Documento;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class FormularioCertifEgresoController extends Controller
 {
@@ -35,8 +37,7 @@ class FormularioCertifEgresoController extends Controller
      */
     public function store(Request $request)
     {
-        //$datosEstudiante = request()->all();
-        //return response()->json($datosEstudiante);
+ 
         $datosFormulario = request()->except('_token');
         $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
         Estudiante::insert($datosEstudiante);
@@ -87,16 +88,26 @@ class FormularioCertifEgresoController extends Controller
             $pronombre = "la";
             $genero_gramatical = "a";
         }
+
         $datosFormulario['materiaEgreso']=$materiaEgreso;
         $datosFormulario['directorCarrera']=$directorCarrera;
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
         $datosFormulario['fechaActual']=$fechaActual;
 
+        $fecha = Carbon::now()->setTimezone('America/La_Paz');
+        $fechaNombre = str_replace ( ":", ' ', $fecha);
+        Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/Certificado Finalizacion Plan de Estudios - '.$datosFormulario['nombreEst'].' '.$datosFormulario['apellidoEst'].' - '.$fechaNombre.'.pdf');
+        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias');
+        $datosRepo['id_estudiante'] = $estudiante;
+        $datosRepo['tipoDocumento'] = "Certificado de Egreso";
+        $nombreDocumento = "Certificado Finalizacion Plan de Estudios - ".$datosFormulario['nombreEst']." ".$datosFormulario['apellidoEst']." - ".$fechaNombre.".pdf";
+        $datosRepo['documento'] = $nombreDocumento;
+        $datosRepo['created_at'] = $fecha;
+        Repositorio_Documento::insert($datosRepo);
 
-        $pdf = Pdf::loadView('pdf', ['nombre'=>$datosFormulario]);
 
-        return $pdf ->stream('Certificado-Finalizacion-Plan-de-Estudios.pdf');
+        return Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
 
     }
 
