@@ -26,12 +26,29 @@
     .segtitulo{
         margin-left:38px
     }
-    .carrera{
+    .universidad{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .carrera_a{
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray;
+    }
+    .carrera_b{
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;
     }
     .nombre{
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .apellido{
         width:250px;
         border-radius: 5px;
         border:2px solid;
@@ -75,12 +92,38 @@
             
         <form class="form-horizontal" method="post" action="{{url('/inf_conv')}}" enctype="multipart/form-data">
             @csrf
-            <font color="black">Carrera a convalidar:</font> <select class="carrera" name="Carrera">
+            Universidad de origen:<input type="text" class="universidad" name="uniprev" value="" required>
+            <span class="error">* </span>
+            <br><br>
+            Carrera de origen:<select class="carrera_a" name="carreraA">
+                <option value="LIC. DIDAC. MATEMATICA">LIC. DIDACTICA MATEMATICA</option>
+                <option value="LIC. EN BIOLOGIA">LIC. EN BIOLOGIA</option>
+                <option value="LIC. EN DIDAC. DE LA FISICA">LIC. EN DIDACTICA DE LA FISICA</option>
+                <option value="LIC. EN FISICA">LIC. EN FISICA</option>
+                <option value="LIC. EN ING. ELECTROMECANICA">LIC. EN ING. ELECTROMECANICA</option>
+                <option value="LIC. EN ING. CIVIL (NUEVO)">LIC. EN INGENIERIA CIVIL (NUEVO)</option>
+                <option value="LIC. EN ING. DE ALIMENTOS">LIC. EN INGENIERIA DE ALIMENTOS</option>
+                <option value="LIC. EN ING. DE SISTEMAS (M.A.)">LIC. EN INGENIERIA DE SISTEMAS (M.A.)</option>
+                <option value="LIC. EN ING. DE SISTEMAS (M.N.)">LIC. EN INGENIERIA DE SISTEMAS (M.N.)</option>
+                <option value="LIC. EN ING. ELECTRICA">LIC. EN INGENIERIA ELECTRICA</option>
+                <option value="LIC. EN ING. ELECTRONICA">LIC. EN INGENIERIA ELECTRONICA</option>
+                <option value="LIC. EN ING. INDUSTRIAL">LIC. EN INGENIERIA INDUSTRIAL</option>
+                <option value="LIC. EN ING. INFORMATICA">LIC. EN INGENIERIA INFORMATICA</option>
+                <option value="LIC. EN ING. MATEMATICA">LIC. EN INGENIERIA MATEMATICA</option>
+                <option value="LIC. EN ING. MECANICA">LIC. EN INGENIERIA MECANICA</option>
+                <option value="LIC. EN ING. QUIMICA">LIC. EN INGENIERIA QUIMICA</option>
+                <option value="LIC. EN MATEMATICAS">LIC. EN MATEMATICAS</option>
+                <option value="LIC. EN QUIMICA">LIC. EN QUIMICA</option>
+                <option value="PROG. DE ING. EN BIOTECNOLOGIA">PROG. DE INGENIERIA EN BIOTECNOLOGIA</option>
+                <option value="PROG. LIC. EN ING. EN ENERGIA">PROG. LIC. EN INGENIERIA EN ENERGIA</option>
+            </select>
+            <span class="error">* </span>
+            <br><br>
+            <font color="black">Carrera a convalidar:</font> <select class="carrera_b" name="Carrera">
                 @foreach($carreras as $carrera)
                 <option  value="{{$carrera->NOMBRECARRERA}}">{{$carrera->NOMBRECARRERA}}</option>
                 @endforeach
             </select>
-
             <span class="error">* </span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
