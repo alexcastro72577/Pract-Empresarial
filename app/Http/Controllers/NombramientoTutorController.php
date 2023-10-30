@@ -17,6 +17,7 @@ class NombramientoTutorController extends Controller
     public function index()
     {
         $datos['carreras'] = Carrera::all();
+        $datos['autoridades'] = Autoridade::all();
         return view('nombTutorMenu', $datos);
     }
 
@@ -34,14 +35,14 @@ class NombramientoTutorController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codSidoc');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codSidoc', 'tutor');
         Estudiante::insert($datosEstudiante);
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
         $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
 
-        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
+        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'tutor');
         Proyecto_Grado::insert($datosProyecto);
         
         $fecha_dia=date("d");

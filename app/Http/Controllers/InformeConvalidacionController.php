@@ -33,9 +33,13 @@ class InformeConvalidacionController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'carreraA', 'uniprev');
         Estudiante::insert($datosEstudiante);
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->NOMBRECARRERA;
+        $datosDecano = Autoridade::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
+        $generoDecano = Autoridade::where('cargo','=', 'Decano')->first()->GENEROAUTORIDAD;
+        $datosJefe = Autoridade::where('cargo','=', 'Jefe')->first()->NOMBREAUTORIDAD;
+        $generoJefe = Autoridade::where('cargo','=', 'Jefe')->first()->GENEROAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");
@@ -65,10 +69,41 @@ class InformeConvalidacionController extends Controller
             $genero_gramatical = "a";
         }
 
+        
+
+        if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
+            $carreraB = "LIC. EN ING. DE SISTEMAS";
+        }
+        else {
+            $carreraB = "LIC. EN ING. INFORMATICA";
+        }
+
         $datosFormulario['Carrera']=$carrera;
         $datosFormulario['fechaActual']=$fechaActual;
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
+        $datosFormulario['Carrera']=$carreraB;
+        $datosFormulario['nombDecano']=$datosDecano;
+        $datosFormulario['nombJefe']=$datosJefe;
+        $datosFormulario['generoD']=$generoDecano;
+        $datosFormulario['generoJ']=$generoJefe;
+
+        if ($datosFormulario['generoD'] == "Masculino") {
+            $genero_gramaticalDecano = "o";
+        }
+        else {
+            $genero_gramaticalDecano = "a";
+        }
+
+        if ($datosFormulario['generoJ'] == "Masculino") {
+            $genero_gramaticalJefe = "E";
+        }
+        else {
+            $genero_gramaticalJefe = "A";
+        }
+
+        $datosFormulario['generoGramDec']=$genero_gramaticalDecano;
+        $datosFormulario['generoGramJefe']=$genero_gramaticalJefe;
 
         $pdf = Pdf::loadView('pdfIConvalidacion', ['nombre'=>$datosFormulario]);
 

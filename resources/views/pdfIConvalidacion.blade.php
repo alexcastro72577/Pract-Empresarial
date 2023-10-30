@@ -32,6 +32,7 @@
             margin-right: 50px
         }
         .aquien{
+            text-transform: uppercase;
             margin-left: 45px
         }
         .dequien{
@@ -44,10 +45,10 @@
         .tabla{
             text-transform: uppercase;
             font-size: 15px;
+            width: 90%;
             margin-bottom: 50px;
             margin-left: 50px;
-            margin-right: 50px;
-            width: 85% 
+            margin-right: 50px
         }
         .columna2{
             text-align: center
@@ -74,13 +75,13 @@
 <body>
     <center><h2 class="titulo"><b><u>INFORME</u></b></h2></center>
     <div class="encabezado">
-        <b>A:</b><b class="espacio1">a</b> Nombre Decano<br>
+        <b>A:</b><b class="espacio1">a</b> {{ $nombre["nombDecano"]}}<br>
         <p class="aquien">
-           <b>DECANO DE LA FACULTAD</b> 
+           <b>DECAN{{ $nombre["generoGramDec"]}} DE LA FACULTAD</b> 
         </p>
-        <b>DE:</b><b class="espacio2">a</b> Nombre Jefe de Departamento<br>
+        <b>DE:</b><b class="espacio2">a</b> {{ $nombre["nombJefe"]}}<br>
         <p class="dequien">
-            <b>JEFE DEPARTAMENTO INFORMÁTICA-SISTEMAS</b>
+            <b>JEF{{ $nombre["generoGramJefe"]}} DEPARTAMENTO INFORMÁTICA-SISTEMAS</b>
         </p>
         <b>REF.:</b> Trámite de Convalidación<br>
         <p class="referencia">
@@ -90,8 +91,8 @@
     <table class="tabla">
         <tr>
             <td><b>DE:</b></td>
-            <td class="columna2"><b>CARRERA ANTIGUA</b></td>
-            <td class="columna3"><b>ANTIGUA UNIVERSIDAD</b></td>
+            <td class="columna2"><b>{{$nombre["carreraA"]}}</b></td>
+            <td class="columna3"><b>{{ $nombre["uniprev"]}}</b></td>
         </tr>
         <tr>
             <td><b>A:</b></td>

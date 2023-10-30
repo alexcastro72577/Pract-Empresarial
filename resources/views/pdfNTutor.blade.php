@@ -62,9 +62,9 @@
         <b>SIS-DIR.T {{ $nombre["codSidoc"]}}/2023</b>
     </p>
     <p class="encabezado">
-        <b>Señor:</b><br>
-        {{ $nombre["directorCarrera"]}}<br>
-        <b><u>Presente.-</u></b>
+        Señor:<br>
+        {{ $nombre["tutor"]}}<br>
+        <u>Presente</u>
     </p>
     <p class="referencia">
         <b>Ref: <u>Nombramiento de Tutor</u></b>
@@ -72,7 +72,8 @@
     <p class="cuerpo">
         De mi consideración:<br>
         <br>
-        Por la presente, comunico a Ud. que, a solicitud de{{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} <b>{{$nombre["nombreEst"]}} {{$nombre["apellidoEst"]}}</b>
+        Por la presente, comunico a Ud. que, a solicitud de{{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} 
+        <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
         de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, ha sido designado(a) Tutor del Proyecto de Grado titulado:
         <b>"{{ $nombre["nombreProyecto"]}}"</b>.<br>
         <br>
