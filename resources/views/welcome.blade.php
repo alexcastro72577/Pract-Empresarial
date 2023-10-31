@@ -6,7 +6,7 @@
     <style>
 
     .form-horizontal{
-        margin-top:70px;
+        margin-top:40px;
         margin-bottom:100px
     }
     .formato_general{
@@ -37,7 +37,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .año{
-        width:50px;
+        width:60px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -60,7 +60,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .CI{
-        width:80px;
+        width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -71,20 +71,19 @@
         box-shadow: 5px 5px 10px gray
     }
     .materias{
-        width:30px;
+        width:40px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .b{
-        margin-top:50px;
+        margin-top:25px;
         margin-left:120px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;
         background-color: #51A9FF;
         border-color: #51A9FF
     }
-
     </style>
     </head>
 
@@ -113,7 +112,7 @@
                 <option value="II">II</option>
             </select>
             <span class="error">* </span>
-            Año: <input type="text" class="año" name="anio" value="" required>
+            Año: <input type="number" class="año" name="anio" value="" pattern="^[0-9]+" required>
             <span class="error">* </span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
@@ -128,7 +127,7 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            C.I.: <input type="text" class="CI" name="ci" value="" required>
+            C.I.: <input type="number" class="CI" name="ci" value="" required>
             <span class="error">* </span>
             <font color="black">Exp.:</font> <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
@@ -143,9 +142,9 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            N° Materias Aprobadas: <input type="text" class="materias" name="numMaterias" value="" required>
+            N° Materias Aprobadas: <input type="number" class="materias" name="numMaterias" value="" required>
             <span class="error">* </span>
-            <br><br>
+            <br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>
