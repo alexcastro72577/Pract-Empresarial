@@ -15,32 +15,14 @@
       background-position: 820px 110px , 0px 400px;
     }
     .Est{
-      margin-left:330px
+      margin-left:600px
     }
-    .certificado{
-      margin-top:150px;
-      margin-left:10px
-    }
-    .infconv{
-      margin-left:10px
-    }
-    .nombtut{
-      margin-left:10px
-    }
-    .btn{
-      height:50px;
-      width:210px;
-      padding:2px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 10px gray;
-      background-color: #51A9FF;
-      border-color: #51A9FF
-    }
+    
     </style>
 </head>
 <body class="user_format">
-<div class="Est">
-    <h2>BIENVENIDO</h2>
-</div>
+  <div class="Est">
+      <h2>BIENVENIDO</h2>
+  </div>
 </body>
 @endsection
