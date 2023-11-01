@@ -8,21 +8,21 @@
     <linh href="img" rel="stylesheet">
     <style>
     .user_format{
-      font-family: Consolas;
       background-image:url(/imagenes/tech.png), url(/imagenes/logo.jpeg);
-      background-size: 45rem, 5rem;
-      background-repeat: no-repeat, no-repeat;
-      background-position: 820px 110px , 0px 400px;
+      background-size: 45rem, 5rem
     }
     .Est{
-      margin-left:600px
+      margin-left:600px;
+      margin-top: 100px
     }
     
     </style>
 </head>
-<body class="user_format">
-  <div class="Est">
-      <h2>BIENVENIDO</h2>
+<body>
+  <div>
+      <br>
+      <h2 class="Est">BIENVENIDO</h2>
+      <h2 class="user_format"></h2>
   </div>
 </body>
 @endsection

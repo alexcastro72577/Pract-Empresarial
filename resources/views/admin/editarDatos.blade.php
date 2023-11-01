@@ -13,11 +13,12 @@
     }
     .titulo{
         margin-top:50px;
-        margin-left:80px
+        margin-left:430px
     }
     .form_horizontal{
         margin-top:100px;
-        margin-bottom:100px
+        margin-bottom:100px;
+        margin-left:300px
     }
     .ncarrera{
         width:250px;
