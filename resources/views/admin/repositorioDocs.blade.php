@@ -31,42 +31,12 @@
         background-size: 40rem, 5rem;
         background-repeat: no-repeat, no-repeat;
         background-position: 400px 110px , 0px 400px;
-        opacity: 1
     }
     .titulo{
         margin-top:50px;
-        margin-left:250px
+        margin-left:350px
     }
-    .form_horizontal{
-        margin-top:100px;
-        margin-bottom:100px
-    }
-    .ncarrera{
-        width:250px;
-        border-radius: 5px;
-        border:2px solid;
-        box-shadow: 5px 5px 10px gray
-    }
-    .nmateria{
-        width:250px;
-        border-radius: 5px;
-        border:2px solid;
-        box-shadow: 5px 5px 10px gray
-    }
-    .ndirector{
-        width:250px;
-        border-radius: 5px;
-        border:2px solid;
-        box-shadow: 5px 5px 10px gray
-    }
-    .btn{
-        margin-top:50px;
-        margin-left:150px;
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px gray;
-        background-color: #51A9FF;
-        border-color: #51A9FF
-    }
+    
     </style>
 </head>
 <body class="formato_gestion">

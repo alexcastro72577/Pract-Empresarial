@@ -11,19 +11,14 @@
         background-repeat: no-repeat, no-repeat;
         background-position: 820px 110px , 0px 400px;
     }
-    .regreso{
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px gray;
-        background-color: #51A9FF;
-        border-color: #51A9FF
-    }
     .titulo{
         margin-top:50px;
-        margin-left:80px
+        margin-left:400px
     }
     .form_horizontal{
         margin-top:100px;
-        margin-bottom:100px
+        margin-bottom:100px;
+        margin-left: 300px
     }
     .ncarrera{
         width:250px;

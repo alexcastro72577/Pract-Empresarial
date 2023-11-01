@@ -5,10 +5,6 @@
     <head>
     <style>
 
-    .form-horizontal{
-        margin-top:35px;
-        margin-bottom:50px
-    }
     .formato_general{
         font-family: Consolas;
         background-image:url(/imagenes/Docu.png), url(/imagenes/logo.jpeg);
@@ -16,15 +12,16 @@
         background-repeat: no-repeat, no-repeat;
         background-position: right, center left;
     }
-    .active{
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px gray;
-        background-color: #51A9FF;
-        border-color: #51A9FF;
-        color: #FFFFFF
+    .titulo{
+        margin-left: 350px
     }
     .segtitulo{
-        margin-left:25px
+        margin-left: 370px
+    }
+    .form-horizontal{
+        margin-top:35px;
+        margin-bottom:50px;
+        margin-left: 350px;
     }
     .carrera{
         border-radius: 5px;
@@ -92,7 +89,7 @@
     <body class="formato_general">
         <div class="container">
 
-            <h2>FORMULARIO DE DESIGNACIÓN</h2>
+            <h2 class="titulo">FORMULARIO DE DESIGNACIÓN</h2>
             <h2 class="segtitulo">NOMBRAMIENTO DE TUTOR</h2>
             
         <form class="form-horizontal" method="post" action="{{url('/nombtutor')}}" enctype="multipart/form-data">
