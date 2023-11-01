@@ -35,12 +35,12 @@ Route::middleware(["auth"])->group(function () {
     Route::resource('/pdfNT', PdfNombramientoTutorController::class);
     Route::resource('/inf_conv', InformeConvalidacionController::class);
     Route::resource('/pdfinfconv', PdfInformeConvalidacionController::class);
+    Route::resource('/repositorio', RepositorioController::class);
 });
 
 Route::middleware(["auth", "solo_usuario_administrador"])->group(function () {
 	Route::resource('/gestionInfo', GestionInfoController::class);
     Route::resource('/admin', AdminMenuController::class);
-    Route::resource('/repositorio', RepositorioController::class);
 });
 
 Auth::routes();
