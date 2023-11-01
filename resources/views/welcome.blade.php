@@ -5,26 +5,22 @@
     <head>
     <style>
 
-    .form-horizontal{
-        margin-top:40px;
-        margin-bottom:100px
-    }
     .formato_general{
         font-family: Consolas;
         background-image:url(/imagenes/Docu.png), url(/imagenes/logo.jpeg);
-        background-size: 50rem, 5rem;
-        background-repeat: no-repeat, no-repeat;
-        background-position: right, center left;
+        background-size: 20rem, 5rem;
+        background-repeat: no-repeat, no-repeat
     }
-    .active{
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px gray;
-        background-color: #51A9FF;
-        border-color: #51A9FF;
-        color: #FFFFFF
+    .titulo{
+        margin-left: 350px
     }
     .segtitulo{
-        margin-left:70px
+        margin-left:420px
+    }
+    .form-horizontal{
+        margin-top:40px;
+        margin-bottom:100px;
+        margin-left: 350px
     }
     .carrera{
         border-radius: 5px;
@@ -89,10 +85,9 @@
 
     <body class="formato_general">
 
-
         <div class="container">
 
-            <h2>FORMULARIO DE CONCLUSIÓN</h2>
+            <h2 class="titulo">FORMULARIO DE CONCLUSIÓN</h2>
             <h2 class="segtitulo">PLAN DE ESTUDIOS</h2>
             
         <form class="form-horizontal" method="post" action="{{url('/form_egreso')}}" enctype="multipart/form-data">
@@ -110,7 +105,7 @@
                 <option value="II">II</option>
             </select>
             <span class="error">* </span>
-            Año: <input type="number" class="año" name="anio" value="" pattern="^[0-9]+" required>
+            Año: <input type="number" class="año" name="anio" value="" required>
             <span class="error">* </span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>

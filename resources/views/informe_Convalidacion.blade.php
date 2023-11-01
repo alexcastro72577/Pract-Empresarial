@@ -5,10 +5,6 @@
     <head>
     <style>
 
-    .form-horizontal{
-        margin-top:70px;
-        margin-bottom:100px
-    }
     .formato_general{
         font-family: Consolas;
         background-image:url(/imagenes/Docu.png), url(/imagenes/logo.jpeg);
@@ -16,15 +12,16 @@
         background-repeat: no-repeat, no-repeat;
         background-position: right, center left;
     }
-    .active{
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px gray;
-        background-color: #51A9FF;
-        border-color: #51A9FF;
-        color: #FFFFFF
-    }
     .titulo{
-        margin-left:40px
+        margin-left:340px
+    }
+    .segtitulo{
+        margin-left: 300px
+    }
+    .form-horizontal{
+        margin-top:70px;
+        margin-bottom:100px;
+        margin-left: 300px
     }
     .universidad{
         width:250px;
@@ -86,14 +83,14 @@
         <div class="container">
 
             <h2 class="titulo">FORMULARIO DE INFORME</h2>
-            <h2>DE CONVALIDACIÓN RECHAZADO</h2>
+            <h2 class="segtitulo">DE CONVALIDACIÓN RECHAZADO</h2>
             
         <form class="form-horizontal" method="post" action="{{url('/inf_conv')}}" enctype="multipart/form-data">
             @csrf
-            Universidad de origen:<input type="text" class="universidad" name="uniprev" value="" required>
+            Universidad de origen: <input type="text" class="universidad" name="uniprev" value="" required>
             <span class="error">* </span>
             <br><br>
-            Carrera de origen:<input type="text" class="carrera_origen" name="carrera_origen" value=""></input>
+            Carrera de origen: <input type="text" class="carrera_origen" name="carrera_origen" value=""></input>
             <span class="error">* </span>
             <br><br>
             <font color="black">Carrera a convalidar:</font> <select class="carrera_destino" name="Carrera">
