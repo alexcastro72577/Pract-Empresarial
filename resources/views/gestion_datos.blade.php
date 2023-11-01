@@ -12,8 +12,13 @@
         background-position: 820px 110px , 0px 400px;
     }
     .titulo{
+        text-transform: uppercase;
         margin-top:50px;
-        margin-left:400px
+        margin-left:430px
+    }
+    .segundotitulo{
+        text-transform: uppercase;
+        margin-left:360px
     }
     .form_horizontal{
         margin-top:100px;
@@ -50,7 +55,9 @@
 </head>
 <body class="formato_gestion">
     <div class="container">
-        <h2 class="titulo">Gestión de Datos</h2>
+        <br>
+        <h2 class="titulo">Gestión de</h2>
+        <h2 class="segundotitulo">Director de Carrera</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionInfo')}}" enctype="multipart/form-data">
         @csrf
             Nueva Carrera: <input type="text" class="ncarrera" name="nombrecarrera" value="" required>
@@ -81,7 +88,7 @@
                     <th scope="row">{{ $dato-> NOMBRECARRERA }}</th>
                     <th scope="row">{{ $dato-> NOMBMATEG }}</th>
                     <td>
-                        <a href="{{url('gestionInfo/'.$dato-> id.'/edit' )}}" class = "btn">
+                        <a href="{{url('gestionInfo/'.$dato-> id.'/edit' )}}" class = "btn btn-primary">
                             Editar
                         </a>
                         <form action="{{url('gestionInfo/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
