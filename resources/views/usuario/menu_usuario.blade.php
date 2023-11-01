@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 @section('content')
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,18 +40,7 @@
 </head>
 <body class="user_format">
 <div class="Est">
-    <h2>MENU SECRETARI@</h2>
-      <div class="certificado">
-        <button type="button" class="btn btn-primary" id="b1" onclick="location='/form_egreso'">Certificado Finalizacion<br> de Estudios</button>
-      </div>
-      <br><br>
-      <div class="nombtut">
-        <button type="button" class="btn btn-primary" id="b1" onclick="location='/nombtutor'">Nombramiento<br>de Tutor</button>
-      </div>
-      <br><br>
-      <div class="infconv">
-        <button type="button" class="btn btn-primary" id="b1" onclick="location='/inf_conv'">Informe de<br>Convalidación</button>
-      </div>
+    <h2>BIENVENIDO</h2>
 </div>
 </body>
 @endsection

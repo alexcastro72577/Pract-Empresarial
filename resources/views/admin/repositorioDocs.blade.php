@@ -1,4 +1,25 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Repositorio')
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+@stop
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#tabla').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                }
+            });
+        } );
+    </script>
+@stop
 
 @section('content')
 
@@ -72,9 +93,5 @@
             </tbody>
         </table>
     </div>
-    <script>
-        var tabla = document.querySelector("#tabla");
-        var dataTable = new DataTable(tabla);
-    </script>
 </body>
-@endsection
+@stop

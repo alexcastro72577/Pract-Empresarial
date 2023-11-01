@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 
@@ -54,7 +54,6 @@
     </style>
 </head>
 <body class="formato_gestion">
-    <button class="btn btn-primary regreso" onclick="location='/admin'">Regresar al<br>Menú Principal</button>
     <div class="container">
         <h2 class="titulo">Gestión de Datos</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionInfo')}}" enctype="multipart/form-data">
