@@ -91,7 +91,7 @@
     <table class="tabla">
         <tr>
             <td><b>DE:</b></td>
-            <td class="columna2"><b>{{$nombre["carreraA"]}}</b></td>
+            <td class="columna2"><b>{{$nombre["carrera_origen"]}}</b></td>
             <td class="columna3"><b>{{ $nombre["uniprev"]}}</b></td>
         </tr>
         <tr>

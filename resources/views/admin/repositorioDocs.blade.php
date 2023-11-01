@@ -27,14 +27,15 @@
     <style>
     .formato_gestion{
         font-family: Consolas;
-        background-image:url(/imagenes/gestion.png), url(/imagenes/logo.jpeg);
+        background-image:url(/imagenes/repo.png), url(/imagenes/logo.jpeg);
         background-size: 40rem, 5rem;
         background-repeat: no-repeat, no-repeat;
-        background-position: 820px 110px , 0px 400px;
+        background-position: 400px 110px , 0px 400px;
+        opacity: 1
     }
     .titulo{
         margin-top:50px;
-        margin-left:80px
+        margin-left:250px
     }
     .form_horizontal{
         margin-top:100px;
