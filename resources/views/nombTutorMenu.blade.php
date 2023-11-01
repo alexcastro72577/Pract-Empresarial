@@ -32,6 +32,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .tutor{
+        width: 250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -54,7 +55,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .CI{
-        width:80px;
+        width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -71,7 +72,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .codsid{
-        width:250px;
+        width:60px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -105,41 +106,7 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            Docente Tutor:<select class="tutor" name="tutor">
-            <option value="Ing. Samuel Acha Perez">Ing. Samuel Acha Perez</option>
-            <option value="Ing. Luis Agreda Morales">Ing. Luis Agreda Morales</option>
-            <option value="Ing. Marcelo Antezana Camacho">Ing. Marcelo Antezana Camacho</option>
-            <option value="Lic. Nancy Tatian Aparicio Yuja">Lic. Nancy Tatian Aparicio Yuja</option>
-            <option value="Ing. Jose Richard Ayoroa Cardozo">Ing. Jose Richard Ayoroa Cardozo</option>
-            <option value="Lic. Maria Leticia Blanco Coca">Lic. Maria Leticia Blanco Coca</option>
-            <option value="Lic. Boris Marcelo Calancha Navia">Lic. Boris Marcelo Calancha Navia</option>
-            <option value="Lic. Indira Camacho del Castillo">Lic. Indira Camacho del Castillo</option>
-            <option value="Ing. Vladimir Costas Jauregui">Ing. Vladimir Costas Jauregui</option>
-            <option value="Ing. Grover Nicolas Cussi">Ing. Grover Nicolas Cussi</option>
-            <option value="Ing. David Escalera Fernandez">Ing. David Escalera Fernandez</option>
-            <option value="Ing. Americo Fiorilo Lozada">Ing. Americo Fiorilo Lozada</option>
-            <option value="Ing. Juan Marcelo Flores Soliz">Ing. Juan Marcelo Flores Soliz</option>
-            <option value="Lic. Corina Justina Flores Villarroel">Lic. Corina Justina Flores Villarroel</option>
-            <option value="Ing. Juan Ruben Garcia Molina">Ing. Juan Ruben Garcia Molina</option>
-            <option value="Lic. Carmen Rosa Garcia Perez">Lic. Carmen Rosa Garcia Perez</option>
-            <option value="Lic. Esthela Grilo Salvatierra">Lic. Esthela Grilo Salvatierra</option>
-            <option value="Ing. Kirt Rolando Jaldin Rosales">Ing. Kirt Rolando Jaldin Rosales</option>
-            <option value="Ing. Valentin Laime Zapata">Ing. Valentin Laime Zapata</option>
-            <option value="Ing. Carlos B. Manzur Soria">Ing. Carlos B. Manzur Soria</option>
-            <option value="Ing. Victor Hugo Montaño Quiroga">Ing. Victor Hugo Montaño Quiroga</option>
-            <option value="Ing. Marco Antonio Montecinos Choque">Ing. Marco Antonio Montecinos Choque</option>
-            <option value="Ing. Yoni Richard Montoya Burgos">Ing. Yoni Richard Montoya Burgos</option>
-            <option value="Ing. Jorge Orellana Araoz">Ing. Jorge Orellana Araoz</option>
-            <option value="Lic. Patricia Rodriguez Bilbao">Lic. Patricia Rodriguez Bilbao</option>
-            <option value="Lic. Patricia Romero Rodriguez">Lic. Patricia Romero Rodriguez</option>
-            <option value="Lic. Carla Salazar Serrudo">Lic. Carla Salazar Serrudo</option>
-            <option value="Lic. Rose Mary Torrico Bascope">Lic. Rose Mary Torrico Bascope</option>
-            <option value="Ing. Hernan Ustariz Vargas">Ing. Hernan Ustariz Vargas</option>
-            <option value="Ing. Vargas Peredo">Ing. Vargas Peredo</option>
-            <option value="Ing. Jimmy Villarroel Novillo">Ing. Jimmy Villarroel Novillo</option>
-            <option value="Ing. Henrry Frank Villarroel Tapia">Ing. Henrry Frank Villarroel Tapia</option>
-            <option value="Ing. Jhomil Zambrana Burgos">Ing. Jhomil Zambrana Burgos</option>
-            </select>
+            Docente Tutor: <input typer="text" class="tutor" name="tutor" value="" required></input>
             <span class="error">*</span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
@@ -154,7 +121,7 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            C.I.: <input type="text" class="CI" name="ci" value="" required>
+            C.I.: <input type="number" class="CI" name="ci" value="" required>
             <span class="error">* </span>
             <font color="black">Exp.:</font> <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
@@ -172,9 +139,9 @@
             Nombre de Proyecto: <input type="text" class="nombreproy" name="nombreProyecto" value="" required>
             <span class="error">* </span>
             <br><br>
-            Codigo SIDOC: <input type="text" class="codsid" name="codSidoc" value="" required>
+            Codigo SIDOC: <input type="number" class="codsid" name="codSidoc" value="" required>
             <span class="error">* </span>
-            <br><br>
+            <br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>

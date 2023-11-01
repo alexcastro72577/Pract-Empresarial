@@ -33,7 +33,7 @@ class InformeConvalidacionController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'carreraA', 'uniprev');
+        $datosEstudiante = request()->except('_token','carrera_origen', 'Carrera','numMaterias', 'numGestion', 'anio', 'carreraA', 'uniprev');
         Estudiante::insert($datosEstudiante);
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->NOMBRECARRERA;
         $datosDecano = Autoridade::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
