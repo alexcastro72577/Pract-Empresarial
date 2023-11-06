@@ -77,7 +77,7 @@
         de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, ha sido designado(a) Tutor del Proyecto de Grado titulado:
         <b>"{{ $nombre["nombreProyecto"]}}"</b>.<br>
         <br>
-        En consecuencia agradeceré a usted, se sirva colaborador a{{$nombre["pronombre"]}} mencionad{{$nombre["generoGramatical"]}}
+        En consecuencia agradeceré a usted, se sirva colaborar a{{$nombre["pronombre"]}} mencionad{{$nombre["generoGramatical"]}}
         estudiante en el desarrollo del trabajo.<br>
     </p>
     <p class="despedida">

@@ -77,7 +77,7 @@
     <div class="encabezado">
         <b>A:</b><b class="espacio1">a</b> {{ $nombre["nombDecano"]}}<br>
         <p class="aquien">
-           <b>DECAN{{ $nombre["generoGramDec"]}} DE LA FACULTAD</b> 
+           <b>DECAN{{ $nombre["generoGramDec"]}} DE LA FCyT-UMSS</b> 
         </p>
         <b>DE:</b><b class="espacio2">a</b> {{ $nombre["nombJefe"]}}<br>
         <p class="dequien">

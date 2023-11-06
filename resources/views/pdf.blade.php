@@ -44,6 +44,9 @@
         .firma{
             font-size: 15px;
         }
+        .cargo{
+            text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -61,7 +64,7 @@
         <br><b>C E R T I F I C A:</b>
     </p>
 
-    <p class="cuerpo"><br>Que {{ $nombre["pronombre"] }} <b>Univ. {{ $nombre["nombreEst"] }} {{$nombre["apellidoEst"]}}</b> con <b>C.I: {{ $nombre["ci"] }} {{ $nombre["exp"] }}</b>, ha  aprobado {{$nombre ["numMaterias"] }}
+    <p class="cuerpo"><br>Que {{ $nombre["pronombre"] }} <b>Univ. {{$nombre["apellidoEst"]}} {{ $nombre["nombreEst"] }}</b> con <b>C.I: {{ $nombre["ci"] }} {{ $nombre["exp"] }}</b>, ha  aprobado {{$nombre ["numMaterias"] }}
         materias del Plan de Estudios de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, hasta la gestión {{ $nombre["numGestion"] }}/{{ $nombre["anio"] }} 
         faltándole la materia de {{ $nombre["materiaEgreso"] }} para la conclusión, por lo tanto está habilitad{{ $nombre["generoGramatical"] }} para cualquier
         modalidad de titulación.
@@ -75,7 +78,7 @@
         </p>
 
         <p class="firma">{{ $nombre["directorCarrera"]}}
-        <br><b>DIRECTOR CARR. {{ $nombre["Carrera"] }}</b></p>
+        <br><b class="cargo">DIRECTOR CARR. {{ $nombre["Carrera"] }}</b></p>
     </center>
 
 </body>

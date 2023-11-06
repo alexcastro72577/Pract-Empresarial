@@ -119,6 +119,8 @@
             <font color="black">Gestión:</font> <select class="gestion" name="numGestion">
                 <option value="I">I</option>
                 <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
             </select>
             <span class="error">* </span>
             <span class="seccionaño">Año: <input type="number" class="año" name="anio" value="" required></span>
