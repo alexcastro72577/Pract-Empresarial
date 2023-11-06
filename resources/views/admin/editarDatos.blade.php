@@ -21,21 +21,24 @@
         margin-left:300px
     }
     .ncarrera{
-        width:250px;
+        margin-left: 100px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .nmateria{
-        width:250px;
+        margin-left: 50px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .ndirector{
-        width:250px;
+        margin-left: 50px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .btn{

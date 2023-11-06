@@ -24,51 +24,63 @@
         margin-left: 350px;
     }
     .carrera{
+        margin-left: 96px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .tutor{
+        margin-left: 50px;
         width: 250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .nombre{
+        margin-left: 74px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .apellido{
-        width:250px;
+        margin-left: 74px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .genero{
+        margin-left: 97px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .CI{
+        margin-left: 125px;
         width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .seccionexp{
+        margin-left: 40px;
+    }
     .exp{
+        margin-left: 10px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .nombreproy{
+        margin-left: 10px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .codsid{
+        margin-left: 53px;
         width:60px;
         border-radius: 5px;
         border:2px solid;
@@ -118,7 +130,7 @@
             <br><br>
             C.I.: <input type="number" class="CI" name="ci" value="" required>
             <span class="error">* </span>
-            <font color="black">Exp.:</font> <select class="exp" name="exp">
+            <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
                 <option value="LPZ">LPZ</option>
                 <option value="SCZ">SCZ</option>
@@ -128,7 +140,7 @@
                 <option value="PND">PND</option>
                 <option value="PSI">PSI</option>
                 <option value="BNI">BNI</option>
-            </select>
+            </select></span>
             <span class="error">* </span>
             <br><br>
             Nombre de Proyecto: <input type="text" class="nombreproy" name="nombreProyecto" value="" required>

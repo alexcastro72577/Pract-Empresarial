@@ -26,18 +26,21 @@
         margin-left: 300px
     }
     .ncarrera{
+        margin-left: 97px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .nmateria{
+        margin-left: 28px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .ndirector{
+        margin-left: 20px;
         width:250px;
         border-radius: 5px;
         border:2px solid;

@@ -24,45 +24,56 @@
         margin-left: 300px
     }
     .universidad{
+        margin-left: 10px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .carrera_origen{
+        margin-left: 40px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;
     }
     .carrera_destino{
+        margin-left: 22px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;
     }
     .nombre{
+        margin-left: 84px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .apellido{
+        margin-left: 83px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .genero{
+        margin-left: 105px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .CI{
+        margin-left: 130px;
         width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .seccionexp{
+        margin-left: 45px
+    }
     .exp{
+        margin-left: 10px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -114,7 +125,7 @@
             <br><br>
             C.I.: <input type="number" class="CI" name="ci" value="" required>
             <span class="error">* </span>
-            <font color="black">Exp.:</font> <select class="exp" name="exp">
+            <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
                 <option value="LPZ">LPZ</option>
                 <option value="SCZ">SCZ</option>
@@ -124,7 +135,7 @@
                 <option value="PND">PND</option>
                 <option value="PSI">PSI</option>
                 <option value="BNI">BNI</option>
-            </select>
+            </select></spán>
             <span class="error">* </span>
             <br><br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
