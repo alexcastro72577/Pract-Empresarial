@@ -11,6 +11,8 @@ use App\Http\Controllers\PdfNombramientoTutorController;
 use App\Http\Controllers\InformeConvalidacionController;
 use App\Http\Controllers\PdfInformeConvalidacionController;
 use App\Http\Controllers\GestionAutoridadCarreraController;
+use App\Http\Controllers\NombramientoTribunalController;
+use App\Http\Controllers\PdfNombramientoTribunalController;
 use App\Http\Controllers\RepositorioController;
 
 /*
@@ -36,6 +38,8 @@ Route::middleware(["auth"])->group(function () {
     Route::resource('/pdfNT', PdfNombramientoTutorController::class);
     Route::resource('/inf_conv', InformeConvalidacionController::class);
     Route::resource('/pdfinfconv', PdfInformeConvalidacionController::class);
+    Route::resource('/nombtribunal', NombramientoTribunalController::class);
+    Route::resource('/pdfNombTribunal', PdfNombramientoTribunalController::class);
     Route::resource('/repositorio', RepositorioController::class);
 });
 
