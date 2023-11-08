@@ -12,8 +12,8 @@ class RepositorioController extends Controller
      */
     public function index()
     {
-        $datosRepositorio['datos'] = Repositorio_Documento::join('estudiantes', 'estudiantes.id', '=', 'repositorio__documentos.id_estudiante')
-              		->get(['estudiantes.NOMBREEST', 'repositorio__documentos.tipoDocumento', 'repositorio__documentos.documento', 'repositorio__documentos.created_at']);
+        $datosRepositorio['datos'] = Repositorio_Documento::join('estudiantes', 'estudiantes.id', '=', 'repositorio_documentos.id_estudiante')
+              		->get(['estudiantes.NOMBREEST', 'repositorio_documentos.tipoDocumento', 'repositorio_documentos.documento', 'repositorio_documentos.created_at']);
         return view('admin.repositorioDocs', $datosRepositorio);
     }
 

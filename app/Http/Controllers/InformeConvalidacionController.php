@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Repositorio_Documento;
 use Carbon\Carbon;
@@ -38,10 +38,10 @@ class InformeConvalidacionController extends Controller
         $datosEstudiante = request()->except('_token','carrera_origen', 'Carrera','numMaterias', 'numGestion', 'anio', 'carreraA', 'uniprev');
         Estudiante::insert($datosEstudiante);
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->NOMBRECARRERA;
-        $datosDecano = Autoridade::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
-        $generoDecano = Autoridade::where('cargo','=', 'Decano')->first()->GENEROAUTORIDAD;
-        $datosJefe = Autoridade::where('cargo','=', 'Jefe')->first()->NOMBREAUTORIDAD;
-        $generoJefe = Autoridade::where('cargo','=', 'Jefe')->first()->GENEROAUTORIDAD;
+        $datosDecano = Autoridad::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
+        $generoDecano = Autoridad::where('cargo','=', 'Decano')->first()->GENEROAUTORIDAD;
+        $datosJefe = Autoridad::where('cargo','=', 'Jefe')->first()->NOMBREAUTORIDAD;
+        $generoJefe = Autoridad::where('cargo','=', 'Jefe')->first()->GENEROAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");

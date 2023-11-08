@@ -7,7 +7,7 @@ use App\Models\Carrera;
 use App\Models\Gestion;
 use App\Models\Kardex;
 use App\Models\Materia_Egreso;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use App\Models\Repositorio_Documento;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -59,7 +59,7 @@ class FormularioCertifEgresoController extends Controller
         Kardex::insert($datosKardex);
 
         $materiaEgreso = Materia_Egreso::where('id_carrera','=', $carrera)->first()->NOMBMATEG;
-        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+        $directorCarrera = Autoridad::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");

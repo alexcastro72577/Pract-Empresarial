@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('repositorio__documentos', function (Blueprint $table) {
+        Schema::create('repositorio_documentos', function (Blueprint $table) {
             $table->id();
             $table->Integer('id_estudiante');
             $table->string('tipoDocumento');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('repositorio__documentos');
+        Schema::dropIfExists('repositorio_documentos');
     }
 };
