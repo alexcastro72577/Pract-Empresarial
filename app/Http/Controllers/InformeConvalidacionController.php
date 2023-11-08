@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Repositorio_Documento;
+use Carbon\Carbon;
 
 class InformeConvalidacionController extends Controller
 {
@@ -36,10 +38,10 @@ class InformeConvalidacionController extends Controller
         $datosEstudiante = request()->except('_token','carrera_origen', 'Carrera','numMaterias', 'numGestion', 'anio', 'carreraA', 'uniprev');
         Estudiante::insert($datosEstudiante);
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->NOMBRECARRERA;
-        $datosDecano = Autoridade::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
-        $generoDecano = Autoridade::where('cargo','=', 'Decano')->first()->GENEROAUTORIDAD;
-        $datosJefe = Autoridade::where('cargo','=', 'Jefe')->first()->NOMBREAUTORIDAD;
-        $generoJefe = Autoridade::where('cargo','=', 'Jefe')->first()->GENEROAUTORIDAD;
+        $datosDecano = Autoridad::where('cargo','=', 'Decano')->first()->NOMBREAUTORIDAD;
+        $generoDecano = Autoridad::where('cargo','=', 'Decano')->first()->GENEROAUTORIDAD;
+        $datosJefe = Autoridad::where('cargo','=', 'Jefe')->first()->NOMBREAUTORIDAD;
+        $generoJefe = Autoridad::where('cargo','=', 'Jefe')->first()->GENEROAUTORIDAD;
         
         $fecha_dia=date("d");
         $fecha_mes=date("m");
@@ -105,9 +107,20 @@ class InformeConvalidacionController extends Controller
         $datosFormulario['generoGramDec']=$genero_gramaticalDecano;
         $datosFormulario['generoGramJefe']=$genero_gramaticalJefe;
 
-        $pdf = Pdf::loadView('pdfIConvalidacion', ['nombre'=>$datosFormulario]);
+        $fecha = Carbon::now()->setTimezone('America/La_Paz');
+        $fechaNombre = str_replace ( ":", ' ', $fecha);
+        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
+        $nombreDocumento = "Informe de Convalidacion Materias Rechazado - ".$datosFormulario['nombreEst']." ".$datosFormulario['apellidoEst']." - ".$fechaNombre.".pdf";
 
-        return $pdf ->stream('Informe_Convalidacion.pdf');
+        Pdf::loadView('pdfIConvalidacion', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
+        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'carrera_origen', 'carreraA', 'uniprev');
+        $datosRepo['id_estudiante'] = $estudiante;
+        $datosRepo['tipoDocumento'] = "Informe de Convalidacion Materias Rechazado";
+        $datosRepo['documento'] = $nombreDocumento;
+        $datosRepo['created_at'] = $fecha;
+        Repositorio_Documento::insert($datosRepo);
+
+        return Pdf::loadView('pdfIConvalidacion', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
     }
 
     /**

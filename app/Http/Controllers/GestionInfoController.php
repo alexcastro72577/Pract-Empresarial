@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Carrera;
 use App\Models\Materia_Egreso;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -16,9 +16,9 @@ class GestionInfoController extends Controller
     {   
         $datosCarrera = Carrera::get('NOMBRECARRERA');
         $datosMateriaEgreso = Materia_Egreso::get('NOMBMATEG');
-        $datosDirectorCarrera['datos'] = Autoridade::join('carreras', 'carreras.id', '=', 'autoridades.id')
-                    ->join('materia__egresos', 'materia__egresos.id', '=', 'carreras.id')
-              		->get(['carreras.NOMBRECARRERA', 'autoridades.NOMBREAUTORIDAD', 'materia__egresos.NOMBMATEG', 'autoridades.id']);
+        $datosDirectorCarrera['datos'] = Autoridad::join('carreras', 'carreras.id', '=', 'autoridades.id')
+                    ->join('materias_egreso', 'materias_egreso.id', '=', 'carreras.id')
+              		->get(['carreras.NOMBRECARRERA', 'autoridades.NOMBREAUTORIDAD', 'materias_egreso.NOMBMATEG', 'autoridades.id']);
         return view('gestion_datos', $datosDirectorCarrera);
     }
 
@@ -45,7 +45,7 @@ class GestionInfoController extends Controller
         $datosDirectorCarrera = request()->except('_token', 'nombrecarrera', 'nombmateg');
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['nombrecarrera'])->first()->id;
         $datosDirectorCarrera['ID_CARRERA']=$carrera;
-        Autoridade::insert($datosDirectorCarrera);
+        Autoridad::insert($datosDirectorCarrera);
 
         $datosMateriaEgreso = request()->except('_token', 'nombrecarrera', 'nombreautoridad');
         $datosMateriaEgreso['ID_CARRERA']=$carrera;
@@ -74,7 +74,7 @@ class GestionInfoController extends Controller
      */
     public function edit(string $id)
     {
-        $datosGeneral = Autoridade::findOrFail($id);
+        $datosGeneral = Autoridad::findOrFail($id);
         $datosCarrera = Carrera::findOrFail($id);
         $datosMateria = Materia_Egreso::findOrFail($id);
         return view('admin.editarDatos', compact('datosGeneral', 'datosCarrera', 'datosMateria'));
@@ -89,7 +89,7 @@ class GestionInfoController extends Controller
         $datosCarrera = request()->except('_token', '_method', 'NOMBMATEG', 'NOMBREAUTORIDAD');
         $datosMateria = request()->except('_token', '_method', 'NOMBREAUTORIDAD', 'NOMBRECARRERA');
 
-        Autoridade::where('id', '=', $id)->update($datosDirector);
+        Autoridad::where('id', '=', $id)->update($datosDirector);
         Carrera::where('id', '=', $id)->update($datosCarrera);
         Materia_Egreso::where('id', '=', $id)->update($datosMateria);
         
@@ -101,7 +101,7 @@ class GestionInfoController extends Controller
      */
     public function destroy(string $id)
     {
-        Autoridade::destroy($id);
+        Autoridad::destroy($id);
         Carrera::destroy($id);
         Materia_Egreso::destroy($id);
         return redirect('gestionInfo');

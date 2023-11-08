@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('repositorio_documentos', function (Blueprint $table) {
+        Schema::create('tutores', function (Blueprint $table) {
             $table->id();
-            $table->Integer('id_estudiante');
-            $table->string('tipoDocumento');
-            $table->string('documento');
-            $table->foreign('id_estudiante')->references('id')->on('estudiantes');
+            $table->string('apellidosTutor');
+            $table->string('nombresTutor');
+            $table->string('titulo');
+            $table->string('genero');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('repositorio_documentos');
+        Schema::dropIfExists('tutores');
     }
 };

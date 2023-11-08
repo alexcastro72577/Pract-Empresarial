@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use App\Models\Proyecto_Grado;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Repositorio_Documento;
+use Carbon\Carbon;
 
 class NombramientoTutorController extends Controller
 {
@@ -17,7 +19,7 @@ class NombramientoTutorController extends Controller
     public function index()
     {
         $datos['carreras'] = Carrera::all();
-        $datos['autoridades'] = Autoridade::all();
+        $datos['autoridades'] = Autoridad::all();
         return view('nombTutorMenu', $datos);
     }
 
@@ -40,7 +42,7 @@ class NombramientoTutorController extends Controller
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
-        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+        $directorCarrera = Autoridad::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
 
         $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'tutor');
         Proyecto_Grado::insert($datosProyecto);
@@ -86,9 +88,20 @@ class NombramientoTutorController extends Controller
         $datosFormulario['generoGramatical']=$genero_gramatical;
         $datosFormulario['codigocarrera']=$codigo_carrera;
 
-        $pdf = Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario]);
+        $fecha = Carbon::now()->setTimezone('America/La_Paz');
+        $fechaNombre = str_replace ( ":", ' ', $fecha);
+        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
+        $nombreDocumento = "Respuesta Solicitud Nombramiento Tutor - ".$datosFormulario['nombreEst']." ".$datosFormulario['apellidoEst']." - ".$fechaNombre.".pdf";
 
-        return $pdf ->stream('Nombramiento_Tutor.pdf');
+        Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
+        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'nombreProyecto', 'codSidoc', 'tutor');
+        $datosRepo['id_estudiante'] = $estudiante;
+        $datosRepo['tipoDocumento'] = "Respuesta Solicitud Nombramiento Tutor";
+        $datosRepo['documento'] = $nombreDocumento;
+        $datosRepo['created_at'] = $fecha;
+        Repositorio_Documento::insert($datosRepo);
+
+        return Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
     }
 
     /**
