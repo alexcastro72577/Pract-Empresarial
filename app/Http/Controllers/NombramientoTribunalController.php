@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use App\Models\Proyecto_Grado;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -17,7 +17,7 @@ class NombramientoTribunalController extends Controller
     public function index()
     {
         $datos['carreras'] = Carrera::all();
-        $datos['autoridades'] = Autoridade::all();
+        $datos['autoridades'] = Autoridad::all();
         return view('nombTribunal', $datos);
     }
 
@@ -40,7 +40,7 @@ class NombramientoTribunalController extends Controller
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
-        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+        $directorCarrera = Autoridad::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
 
         $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'modalidad', 'tribunal1', 'tribunal2', 'tribunal3');
         Proyecto_Grado::insert($datosProyecto);

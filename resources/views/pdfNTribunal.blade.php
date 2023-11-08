@@ -95,6 +95,20 @@
         {{$nombre["directorCarrera"]}}<br>
         <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
     </p>
+    <br><br>
+    <p>
+        esto es un ejemplo de un nuevo parrafo<br>
+        otro parrafo<br>
+        otro parrafo<br>
+    </p>
+    <p>
+        esto es otro ejemplo de un nuevo<br>
+        parrafo para probar<br>
+        hasta donde es capaz de ser<br>
+        visible la hoja<br>
+        hasta aqui el reporte<br>
+        mario hugo
+    </p>
     
 </body>
 

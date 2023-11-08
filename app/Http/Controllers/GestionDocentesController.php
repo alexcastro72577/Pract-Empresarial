@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Carrera;
 use App\Models\Materia_Egreso;
-use App\Models\Autoridade;
+use App\Models\Autoridad;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
