@@ -8,10 +8,8 @@ use App\Models\Carrera;
 use App\Models\Autoridad;
 use App\Models\Proyecto_Grado;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\Repositorio_Documento;
-use Carbon\Carbon;
 
-class NombramientoTutorController extends Controller
+class NombramientoTribunalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +18,7 @@ class NombramientoTutorController extends Controller
     {
         $datos['carreras'] = Carrera::all();
         $datos['autoridades'] = Autoridad::all();
-        return view('nombTutorMenu', $datos);
+        return view('nombTribunal', $datos);
     }
 
     /**
@@ -37,14 +35,14 @@ class NombramientoTutorController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codCite', 'tutor');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'modalidad', 'codCite', 'tribunal1', 'tribunal2', 'tribunal3');
         Estudiante::insert($datosEstudiante);
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
 
         $directorCarrera = Autoridad::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
 
-        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'tutor');
+        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'modalidad', 'tribunal1', 'tribunal2', 'tribunal3');
         Proyecto_Grado::insert($datosProyecto);
         
         $fecha_dia=date("d");
@@ -67,14 +65,13 @@ class NombramientoTutorController extends Controller
         $fechaActual=$fecha_dia." de ".$mes_year[$fecha_mes]." de ".$fecha_year;
 
         if ($datosFormulario['genero'] == "Masculino") {
-            $pronombre = "l";
+            $pronombre = "el";
             $genero_gramatical = "o";
         }
         else {
-            $pronombre = " la";
+            $pronombre = "la";
             $genero_gramatical = "a";
         }
-
         if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
             $codigo_carrera = "SIS";
         }
@@ -88,20 +85,9 @@ class NombramientoTutorController extends Controller
         $datosFormulario['generoGramatical']=$genero_gramatical;
         $datosFormulario['codigocarrera']=$codigo_carrera;
 
-        $fecha = Carbon::now()->setTimezone('America/La_Paz');
-        $fechaNombre = str_replace ( ":", ' ', $fecha);
-        $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
-        $nombreDocumento = "Respuesta Solicitud Nombramiento Tutor - ".$datosFormulario['nombreEst']." ".$datosFormulario['apellidoEst']." - ".$fechaNombre.".pdf";
+        $pdf = Pdf::loadView('pdfNTribunal', ['nombre'=>$datosFormulario]);
 
-        Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
-        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'nombreProyecto', 'codSidoc', 'tutor');
-        $datosRepo['id_estudiante'] = $estudiante;
-        $datosRepo['tipoDocumento'] = "Respuesta Solicitud Nombramiento Tutor";
-        $datosRepo['documento'] = $nombreDocumento;
-        $datosRepo['created_at'] = $fecha;
-        Repositorio_Documento::insert($datosRepo);
-
-        return Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
+        return $pdf ->stream('Nombramiento_Tribunal.pdf');
     }
 
     /**

@@ -23,53 +23,70 @@
         margin-left: 350px
     }
     .carrera{
+        width: 190px;
+        margin-left: 120px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;
     }
     .gestion{
+        width: 50px;
+        margin-left: 118px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .seccionaño{
+        margin-left: 85px
+    }
     .año{
+        margin-left: 10px;
         width:60px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .nombre{
+        margin-left: 97px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .apellido{
+        margin-left: 97px;
         width:250px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .genero{
+        margin-left: 120px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .CI{
+        margin-left: 147px;
         width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .seccionexp{
+        margin-left: 40px
+    }
     .exp{
+        margin-left: 7px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .materias{
-        width:40px;
+        margin-left: 17px;
+        width: 50px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .b{
@@ -103,9 +120,11 @@
             <font color="black">Gestión:</font> <select class="gestion" name="numGestion">
                 <option value="I">I</option>
                 <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
             </select>
             <span class="error">* </span>
-            Año: <input type="number" class="año" name="anio" value="" required>
+            <span class="seccionaño">Año: <input type="number" class="año" name="anio" value="" required></span>
             <span class="error">* </span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
@@ -122,7 +141,7 @@
             <br><br>
             C.I.: <input type="number" class="CI" name="ci" value="" required>
             <span class="error">* </span>
-            <font color="black">Exp.:</font> <select class="exp" name="exp">
+            <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
                 <option value="LPZ">LPZ</option>
                 <option value="SCZ">SCZ</option>
@@ -132,7 +151,7 @@
                 <option value="PND">PND</option>
                 <option value="PSI">PSI</option>
                 <option value="BNI">BNI</option>
-            </select>
+            </select> </span>
             <span class="error">* </span>
             <br><br>
             N° Materias Aprobadas: <input type="number" class="materias" name="numMaterias" value="" required>

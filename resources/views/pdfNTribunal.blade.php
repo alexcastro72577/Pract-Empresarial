@@ -36,6 +36,9 @@
             margin-right: 50px;
             margin-top: 25px;
         }
+        .nombproy{
+            text-transform: uppercase
+        }
         .despedida{
             text-align: justify;
             font-size: 15px;
@@ -59,35 +62,52 @@
 
     <p class="fecha" id="current_date"> 
         Cochabamba, {{ $nombre["fechaActual"]}}<br>
-        <b>{{ $nombre["codigocarrera"]}}-DIR.T {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
+        <b>{{ $nombre["codigocarrera"]}}-DIR.TR {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
     </p>
     <p class="encabezado">
-        Señor:<br>
-        {{ $nombre["tutor"]}}<br>
+        Señores:<br>
+        {{ $nombre["tribunal1"]}}<br>
+        {{ $nombre["tribunal2"]}}<br>
+        {{ $nombre["tribunal3"]}}<br>
         <u>Presente</u>
     </p>
     <p class="referencia">
-        <b>Ref: <u>Nombramiento de Tutor</u></b>
+        <b>REF: <u>NOMBRAMIENTO DE TRIBUNALES</u></b>
     </p>
     <p class="cuerpo">
         De mi consideración:<br>
         <br>
-        Por la presente, comunico a Ud. que, a solicitud de{{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} 
-        <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
-        de la Carrera de Licenciatura en {{$nombre["Carrera"]}}, ha sido designado(a) Tutor del Proyecto de Grado titulado:
-        <b>"{{ $nombre["nombreProyecto"]}}"</b>.<br>
+        Me es grato comunicarles a Ustedes que, han sido designados Tribunales para la revisión del proyecto
+        en modalidad de {{ $nombre["modalidad"]}} titulado: <b class="nombproy">"{{ $nombre["nombreProyecto"]}}"</b> realizado por
+        {{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
+        de la carrera de Licenciatura en {{$nombre["Carrera"]}}.
         <br>
-        En consecuencia agradeceré a usted, se sirva colaborar a{{$nombre["pronombre"]}} mencionad{{$nombre["generoGramatical"]}}
-        estudiante en el desarrollo del trabajo.<br>
+        En consecuencia, recomiendo dar cumplimiento a la <b>Resolución H. C. F. Nº104/2009</b> y a la vez solicitar a Uds. proceder
+        a la revisión necesaria para posteriormente hacernos llegar su informe, para lo que adjuntamos una copia de su Proyecto y Perfil.
+        <br>
     </p>
     <p class="despedida">
-        Agradeciendo de antemano su colaboración, me despido reiterando mis consideraciones más distiguidas.<br>
+        Agradeciendo de antemano su colaboración, saludo a Ustedes.<br>
         <br>
-        Atentamente,
+        Muy atentamente,
     </p>
     <p class="firma">
         {{$nombre["directorCarrera"]}}<br>
         <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
+    </p>
+    <br><br>
+    <p>
+        esto es un ejemplo de un nuevo parrafo<br>
+        otro parrafo<br>
+        otro parrafo<br>
+    </p>
+    <p>
+        esto es otro ejemplo de un nuevo<br>
+        parrafo para probar<br>
+        hasta donde es capaz de ser<br>
+        visible la hoja<br>
+        hasta aqui el reporte<br>
+        mario hugo
     </p>
     
 </body>

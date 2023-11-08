@@ -16,7 +16,7 @@
         margin-left: 350px
     }
     .segtitulo{
-        margin-left: 370px
+        margin-left: 355px
     }
     .form-horizontal{
         margin-top:35px;
@@ -24,14 +24,28 @@
         margin-left: 350px;
     }
     .carrera{
-        width:190px;
         margin-left: 96px;
+        width: 190px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
-    .tutor{
-        margin-left: 50px;
+    .tribunal1{
+        margin-left: 20px;
+        width: 250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .tribunal2{
+        margin-left: 20px;
+        width: 250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .tribunal3{
+        margin-left: 20px;
         width: 250px;
         border-radius: 5px;
         border:2px solid;
@@ -80,9 +94,16 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .modalidad{
+        margin-left: 75px;
+        width:160px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
     .codcite{
         margin-left: 66px;
-        width:60px;
+        width:70px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -113,19 +134,27 @@
         <div class="container">
 
             <h2 class="titulo">FORMULARIO DE DESIGNACIÓN</h2>
-            <h2 class="segtitulo">NOMBRAMIENTO DE TUTOR</h2>
+            <h2 class="segtitulo">NOMBRAMIENTO DE TRIBUNAL</h2>
             
-        <form class="form-horizontal" method="post" action="{{url('/nombtutor')}}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="post" action="{{url('/nombtribunal')}}" enctype="multipart/form-data">
             @csrf
-            <font color="black">Carrera:</font> <select class="carrera" name="Carrera">
+            Carrera: <select class="carrera" name="Carrera">
                 @foreach($carreras as $carrera)
                 <option  value="{{$carrera->NOMBRECARRERA}}">{{$carrera->NOMBRECARRERA}}</option>
                 @endforeach
             </select>
             <span class="error">* </span>
             <br><br>
-            Docente Tutor: <input typer="text" class="tutor" name="tutor" value="" required></input>
+            Docente Tribunal 1: <input typer="text" class="tribunal1" name="tribunal1" value="" required></input>
             <span class="error">*</span>
+            <br><br>
+            Docente Tribunal 2: <input typer="text" class="tribunal2" name="tribunal2" value="" required></input>
+            <span class="error">*</span>
+            <br><br>
+            Docente Tribunal 3: <input typer="text" class="tribunal3" name="tribunal3" value="" required></input>
+            <span class="error">*</span>
+            <br><br>
+            <b>DATOS DEL ESTUDIANTE</b>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>
             <span class="error">* </span>
@@ -133,7 +162,7 @@
             Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
             <span class="error">* </span>
             <br><br>
-            <font color="black">Género:</font> <select class="genero" name="genero">
+            Género: <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
@@ -157,11 +186,19 @@
             Nombre de Proyecto: <input type="text" class="nombreproy" name="nombreProyecto" value="" required>
             <span class="error">* </span>
             <br><br>
+            Modalidad: <select class="modalidad" name="modalidad">
+                <option value="Proyecto de Grado">Proyecto de Grado</option>
+                <option value="Adscripción">Adscripción</option>
+                <option value="Tesis">Tesis</option>
+                <option value="Trabajo Dirigido">Trabajo Dirigido</option>
+            </select>
+            <span class="error">* </span>
+            <br><br>
             Codigo CITE: <input type="number" class="codcite" name="codCite" value="" required>
             <span class="error">* </span>
             <span class="seccionaño">Año: <input type="number" class="año" name="anio" value="" required></span>
             <span class="error">* </span>
-            <br><br>
+            <br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>
