@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Repositorio_Documento extends Model
 {
     use HasFactory;
+    protected $table = "repositorio_documentos";
 }
