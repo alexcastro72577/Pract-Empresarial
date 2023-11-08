@@ -1,17 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Carrera;
+use App\Models\Materia_Egreso;
+use App\Models\Autoridade;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 
-class PdfNombramientoTribunalController extends Controller
+class GestionDocentesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('pdfNTribunal');
+    {   
+        return view('gestiondocentes');
     }
 
     /**
@@ -28,6 +31,7 @@ class PdfNombramientoTribunalController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -49,7 +53,7 @@ class PdfNombramientoTribunalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }

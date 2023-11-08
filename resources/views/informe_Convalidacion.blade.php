@@ -38,6 +38,7 @@
     }
     .carrera_destino{
         margin-left: 22px;
+        width: 190px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;

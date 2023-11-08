@@ -23,20 +23,21 @@
         margin-left: 350px
     }
     .carrera{
-        width: 250px;
+        width: 190px;
         margin-left: 120px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray;
     }
     .gestion{
+        width: 50px;
         margin-left: 118px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .seccionaño{
-        margin-left: 97px
+        margin-left: 85px
     }
     .año{
         margin-left: 10px;

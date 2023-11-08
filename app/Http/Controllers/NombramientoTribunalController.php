@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Estudiante;
+use App\Models\Carrera;
+use App\Models\Autoridade;
+use App\Models\Proyecto_Grado;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-class PdfController extends Controller
+class NombramientoTribunalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('nombTribunal');
+        $datos['carreras'] = Carrera::all();
+        $datos['autoridades'] = Autoridade::all();
+        return view('nombTribunal', $datos);
     }
 
     /**
@@ -27,7 +34,60 @@ class PdfController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosFormulario = request()->except('_token');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'modalidad', 'codCite', 'tribunal1', 'tribunal2', 'tribunal3');
+        Estudiante::insert($datosEstudiante);
+
+        $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
+
+        $directorCarrera = Autoridade::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+
+        $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'modalidad', 'tribunal1', 'tribunal2', 'tribunal3');
+        Proyecto_Grado::insert($datosProyecto);
+        
+        $fecha_dia=date("d");
+        $fecha_mes=date("m");
+        $fecha_year=date("Y");
+        $mes_year=[
+            "01"=>"Enero",
+            "02"=>"Febrero",
+            "03"=>"Marzo",
+            "04"=>"Abril",
+            "05"=>"Mayo",
+            "06"=>"Junio",
+            "07"=>"Julio",
+            "08"=>"Agosto",
+            "09"=>"Septiembre",
+            "10"=>"Octubre",
+            "11"=>"Noviembre",
+            "12"=>"Diciembre"
+        ];
+        $fechaActual=$fecha_dia." de ".$mes_year[$fecha_mes]." de ".$fecha_year;
+
+        if ($datosFormulario['genero'] == "Masculino") {
+            $pronombre = "el";
+            $genero_gramatical = "o";
+        }
+        else {
+            $pronombre = "la";
+            $genero_gramatical = "a";
+        }
+        if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
+            $codigo_carrera = "SIS";
+        }
+        else {
+            $codigo_carrera = "INF";
+        }
+
+        $datosFormulario['directorCarrera']=$directorCarrera;
+        $datosFormulario['fechaActual']=$fechaActual;
+        $datosFormulario['pronombre']=$pronombre;
+        $datosFormulario['generoGramatical']=$genero_gramatical;
+        $datosFormulario['codigocarrera']=$codigo_carrera;
+
+        $pdf = Pdf::loadView('pdfNTribunal', ['nombre'=>$datosFormulario]);
+
+        return $pdf ->stream('Nombramiento_Tribunal.pdf');
     }
 
     /**

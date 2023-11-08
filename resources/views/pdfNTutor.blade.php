@@ -59,7 +59,7 @@
 
     <p class="fecha" id="current_date"> 
         Cochabamba, {{ $nombre["fechaActual"]}}<br>
-        <b>SIS-DIR.T {{ $nombre["codSidoc"]}}/2023</b>
+        <b>{{ $nombre["codigocarrera"]}}-DIR.T {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
     </p>
     <p class="encabezado">
         Señor:<br>

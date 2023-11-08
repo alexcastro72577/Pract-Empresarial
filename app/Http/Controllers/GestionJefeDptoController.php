@@ -7,14 +7,14 @@ use App\Models\Autoridade;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
-class GestionInfoController extends Controller
+class GestionJefeDptoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {   
-        return view('gestionautoridades');
+        return view('gestionjefedpto');
     }
 
     /**

@@ -35,7 +35,7 @@ class NombramientoTutorController extends Controller
     public function store(Request $request)
     {
         $datosFormulario = request()->except('_token');
-        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codSidoc', 'tutor');
+        $datosEstudiante = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreProyecto', 'codCite', 'tutor');
         Estudiante::insert($datosEstudiante);
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
@@ -73,10 +73,18 @@ class NombramientoTutorController extends Controller
             $genero_gramatical = "a";
         }
 
+        if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
+            $codigo_carrera = "SIS";
+        }
+        else {
+            $codigo_carrera = "INF";
+        }
+
         $datosFormulario['directorCarrera']=$directorCarrera;
         $datosFormulario['fechaActual']=$fechaActual;
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
+        $datosFormulario['codigocarrera']=$codigo_carrera;
 
         $pdf = Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario]);
 

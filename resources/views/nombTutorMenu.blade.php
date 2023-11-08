@@ -24,6 +24,7 @@
         margin-left: 350px;
     }
     .carrera{
+        width:190px;
         margin-left: 96px;
         border-radius: 5px;
         border:2px solid;
@@ -79,8 +80,18 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
-    .codsid{
-        margin-left: 53px;
+    .codcite{
+        margin-left: 66px;
+        width:60px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .seccionaño{
+        margin-left: 76px
+    }
+    .año{
+        margin-left: 10px;
         width:60px;
         border-radius: 5px;
         border:2px solid;
@@ -146,9 +157,11 @@
             Nombre de Proyecto: <input type="text" class="nombreproy" name="nombreProyecto" value="" required>
             <span class="error">* </span>
             <br><br>
-            Codigo SIDOC: <input type="number" class="codsid" name="codSidoc" value="" required>
+            Codigo CITE: <input type="number" class="codcite" name="codCite" value="" required>
             <span class="error">* </span>
-            <br>
+            <span class="seccionaño">Año: <input type="number" class="año" name="anio" value="" required></span>
+            <span class="error">* </span>
+            <br><br>
             <button type="submit" class="btn btn-primary b">Generar Carta</button>  
         </form>
         </div>
