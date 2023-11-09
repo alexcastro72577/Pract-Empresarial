@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Carrera;
-use App\Models\Materia_Egreso;
 use App\Models\Autoridad;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,7 +12,9 @@ class GestionJefeDptoController extends Controller
      */
     public function index()
     {   
-        return view('gestionjefedpto');
+        $datosJefe['datos'] = Autoridad::where('cargo','=', 'Jefe')->get();
+        
+        return view('gestionjefedpto', $datosJefe);
     }
 
     /**
@@ -30,7 +30,11 @@ class GestionJefeDptoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosFormulario = request()->except('_token');
+        $datosFormulario['CARGO']= "Jefe";
+        Autoridad::insert($datosFormulario);
+
+        return redirect('gestionDJD');
 
     }
 
@@ -47,7 +51,9 @@ class GestionJefeDptoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $datosJefe = Autoridad::findOrFail($id);
+
+        return view('admin.editarDatosJefe', compact('datosJefe'));
     }
 
     /**
@@ -55,7 +61,10 @@ class GestionJefeDptoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datosJefe = request()->except('_token', '_method');
+        Autoridad::where('id', '=', $id)->update($datosJefe);
+        
+        return redirect('gestionDJD');
     }
 
     /**
@@ -63,6 +72,7 @@ class GestionJefeDptoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Autoridad::destroy($id);
+        return redirect('gestionDJD');
     }
 }

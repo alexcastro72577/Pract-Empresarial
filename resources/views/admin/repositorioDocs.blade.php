@@ -46,37 +46,25 @@
                                 {
                                     label: '2023',
                                     value: function(rowData, rowIdx) {
-                                        return rowData[3] > '2023-02-22-24.00.00';
+                                        return rowData[3] > '2023-01-01-24.00.00';
                                     }
                                 },
                                 {
                                     label: '2024',
                                     value: function(rowData, rowIdx) {
-                                        return rowData[3] > '2023-11-00-24.00.00';
+                                        return rowData[3] > '2024-01-01-24.00.00';
                                     }
                                 },
                                 {
-                                    label: '30 to 40',
+                                    label: '2025',
                                     value: function(rowData, rowIdx) {
-                                        return rowData[3] <= 40 && rowData[4] >=30;
+                                        return rowData[3] > '2025-01-01-24.00.00';
                                     }
                                 },
                                 {
-                                    label: '40 to 50',
+                                    label: '2026',
                                     value: function(rowData, rowIdx) {
-                                        return rowData[3] <= 50 && rowData[4] >=40;
-                                    }
-                                },
-                                {
-                                    label: '50 to 60',
-                                    value: function(rowData, rowIdx) {
-                                        return rowData[3] <= 60 && rowData[4] >=50;
-                                    }
-                                },
-                                {
-                                    label: 'Over 60',
-                                    value: function(rowData, rowIdx) {
-                                        return rowData[3] > 60;
+                                        return rowData[3] > '2026-01-01-24.00.00';
                                     }
                                 }
                             ]
@@ -127,15 +115,23 @@
                     <th scope="col">Tipo de Documentacion</th>
                     <th scope="col">Documento</th>
                     <th scope="col">Fecha</th>
+                    <th scope="col">Accion</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($datos as $dato)
                 <tr>      
-                    <th scope="row">{{ $dato-> NOMBREEST }}</th>
+                    <th scope="row">{{ $dato-> NOMBREEST }} {{ $dato-> APELLIDOEST }}</th>
                     <th scope="row">{{ $dato-> tipoDocumento }}</th>
                     <th scope="row"> <a href="Dokus/{{ $dato-> documento }}" target= "blank_" >{{ $dato-> documento }}</a></th>
                     <th scope="row">{{ $dato-> created_at }}</th>
+                    <td>
+                        <form action="{{url('repositorio/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
                

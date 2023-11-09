@@ -18,7 +18,7 @@
     }
     .segundotitulo{
         text-transform: uppercase;
-        margin-left:455px
+        margin-left:350px
     }
     .form_horizontal{
         margin-top:50px;
@@ -34,7 +34,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .genero{
-        margin-left: 60px;
+        margin-left: 157px;
         width:110px;
         border-radius: 5px;
         border:2px solid;
@@ -54,13 +54,14 @@
     <div class="container">
         <br>
         <h2 class="titulo">Gestión de</h2>
-        <h2 class="segundotitulo">Decano</h2>
-        <form class="form_horizontal" method="post" action="{{url('/gestionDD')}}" enctype="multipart/form-data">
+        <h2 class="segundotitulo">Jefe de Departamento</h2>
+        <form class="form_horizontal" method="post" action="{{url('/gestionDJD/'.$datosJefe->id)}}" enctype="multipart/form-data">
         @csrf
-            Nombre Decano: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value="" required>
+        {{method_field('PATCH')}}
+            Nombre Jefe de Dpto: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value=" {{ $datosJefe-> NOMBREAUTORIDAD }} " required>
             <span class="error">* </span>
             <br><br>
-            Facultad: <input type="text" class="nombre" name="FACULTAD" value="" required>
+            Nombre del Departamento: <input type="text" class="nombre" name="DPTO" value=" {{ $datosJefe->DPTO }} " required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="GENEROAUTORIDAD">
@@ -69,36 +70,8 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary guardar">Guardar Datos</button>
+            <button type="submit" class="btn btn-primary guardar">Guardar Cambios</button>
         </form>
-        <table class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre Completo Decano</th>
-                    <th scope="col">Facultad</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($datos as $dato)
-                <tr>      
-                    <th scope="row"> {{ $dato-> NOMBREAUTORIDAD }} </th>
-                    <th scope="row"> {{ $dato-> FACULTAD }} </th>
-                    <td>
-                        <a href="{{url('gestionDD/'.$dato-> id.'/edit' )}}" class = "btn btn-primary">
-                            Editar
-                        </a>
-                        <form action="{{url('gestionDD/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            {{method_field('DELETE')}}
-                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-               
-            </tbody>
-        </table>
     </div>
 </body>
 @endsection
