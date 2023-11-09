@@ -145,13 +145,25 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            Docente Tribunal 1: <input typer="text" class="tribunal1" name="tribunal1" value="" required></input>
+            Docente Tribunal 1: <select class="tribunal1" name="tribunal1">
+                @foreach($tutores as $primerTR)
+                <option  value="{{$primerTR->apellidosTutor}}">{{$primerTR->titulo}} {{$primerTR->apellidosTutor}} {{$primerTR->nombresTutor}}</option>
+                @endforeach
+            </select>
             <span class="error">*</span>
             <br><br>
-            Docente Tribunal 2: <input typer="text" class="tribunal2" name="tribunal2" value="" required></input>
+            Docente Tribunal 2: <select class="tribunal2" name="tribunal2">
+                @foreach($tutores as $segundoTR)
+                <option  value="{{$segundoTR->apellidosTutor}}">{{$segundoTR->titulo}} {{$segundoTR->apellidosTutor}} {{$segundoTR->nombresTutor}}</option>
+                @endforeach
+            </select>
             <span class="error">*</span>
             <br><br>
-            Docente Tribunal 3: <input typer="text" class="tribunal3" name="tribunal3" value="" required></input>
+            Docente Tribunal 3: <select class="tribunal3" name="tribunal3">
+                @foreach($tutores as $tercerTR)
+                <option  value="{{$tercerTR->apellidosTutor}}">{{$tercerTR->titulo}} {{$tercerTR->apellidosTutor}} {{$tercerTR->nombresTutor}}</option>
+                @endforeach
+            </select>
             <span class="error">*</span>
             <br><br>
             <b>DATOS DEL ESTUDIANTE</b>

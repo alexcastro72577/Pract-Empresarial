@@ -63,7 +63,7 @@
     </p>
     <p class="encabezado">
         Señor:<br>
-        {{ $nombre["tutor"]}}<br>
+        {{ $nombre["tituloTutor"]}} {{ $nombre["tutor"]}} {{ $nombre["nombreTutor"]}}<br>
         <u>Presente</u>
     </p>
     <p class="referencia">

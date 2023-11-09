@@ -309,44 +309,64 @@ return [
         ['header' => 'Autoridades',
         'can'  => 'admin'],
         [
-            'text'        => 'Gestion Director Carrera',
-            'url'         => '/gestionInfo',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Autoridades FCyT',
+            'icon'        => 'fas fa-fw fa-university',
             'can'  => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Gestion Decano',
+                    'url'         => '/gestionDD',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ],
+                [
+                    'text'        => 'Gestion Jefe de Dpto',
+                    'url'         => '/gestionDJD',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ]
+            ]
         ],
         [
-            'text'        => 'Gestion Decano',
-            'url'         => '/gestionDD',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Autoridades Carrera',
+            'icon'        => 'fas fa-fw fa-building',
             'can'  => 'admin',
-        ],
-        [
-            'text'        => 'Gestion Jefe de Dpto.',
-            'url'         => '/gestionDJD',
-            'icon'        => 'far fa-fw fa-file',
-            'can'  => 'admin',
-        ],
-        [
-            'text'        => 'Gestion Tutor/Tribunal',
-            'url'         => '/gestionDTT',
-            'icon'        => 'far fa-fw fa-file',
-            'can'  => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Gestion Director Carrera',
+                    'url'         => '/gestionInfo',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ],
+                [
+                    'text'        => 'Gestion Tutor/Tribunal',
+                    'url'         => '/gestionDTT',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ]
+            ]
         ],
         ['header' => 'Generar Documentos'],
         [
+            'text'        => 'Nombramientos',
+            'icon'        => 'fas fa-fw fa-gavel',
+            'submenu' => [
+                [
+                    'text' => 'De Tutor',
+                    'url'  => '/nombtutor',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text'    => 'De Tribunales',
+                    'url'  => '/nombtribunal',
+                    'icon'    => 'fas fa-fw fa-users',
+                ]
+            ]
+        ],
+        [
             'text' => 'Certificado de Egreso',
             'url'  => '/form_egreso',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text' => 'Nombramiento de Tutor',
-            'url'  => '/nombtutor',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text'    => 'Nombramiento de Tribunal',
-            'url'  => '/nombtribunal',
-            'icon'    => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-graduation-cap',
         ],
         [
             'text'    => 'Informe de Convalidación',

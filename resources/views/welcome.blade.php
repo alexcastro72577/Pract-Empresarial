@@ -109,7 +109,7 @@
             
         <form class="form-horizontal" method="post" action="{{url('/form_egreso')}}" enctype="multipart/form-data">
             @csrf
-            <font color="black">Carrera:</font> <select class="carrera" name="Carrera">
+            Carrera: <select class="carrera" name="Carrera">
                 @foreach($carreras as $carrera)
                 <option  value="{{$carrera->NOMBRECARRERA}}">{{$carrera->NOMBRECARRERA}}</option>
                 @endforeach

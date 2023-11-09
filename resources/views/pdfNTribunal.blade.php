@@ -55,6 +55,9 @@
             font-size: 15px;
             text-transform: uppercase;
         }
+        .espacio{
+            margin-top: 100px
+        }
     </style>
 </head>
 
@@ -66,9 +69,9 @@
     </p>
     <p class="encabezado">
         Señores:<br>
-        {{ $nombre["tribunal1"]}}<br>
-        {{ $nombre["tribunal2"]}}<br>
-        {{ $nombre["tribunal3"]}}<br>
+        {{ $nombre["tituloPrimerTR"]}} {{ $nombre["tribunal1"]}} {{ $nombre["nombrePrimerTR"]}}<br>
+        {{ $nombre["tituloSegundoTR"]}} {{ $nombre["tribunal2"]}} {{ $nombre["nombreSegundoTR"]}}<br>
+        {{ $nombre["tituloTercerTR"]}} {{ $nombre["tribunal3"]}} {{ $nombre["nombreTercerTR"]}}<br>
         <u>Presente</u>
     </p>
     <p class="referencia">
@@ -95,19 +98,113 @@
         {{$nombre["directorCarrera"]}}<br>
         <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
     </p>
+
     <br><br>
-    <p>
-        esto es un ejemplo de un nuevo parrafo<br>
-        otro parrafo<br>
-        otro parrafo<br>
+    <p class="espacio"></p>
+    <p class="fecha" id="current_date"> 
+        Cochabamba, {{ $nombre["fechaActual"]}}<br>
+        <b>{{ $nombre["codigocarrera"]}}-DIR.TR {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
     </p>
-    <p>
-        esto es otro ejemplo de un nuevo<br>
-        parrafo para probar<br>
-        hasta donde es capaz de ser<br>
-        visible la hoja<br>
-        hasta aqui el reporte<br>
-        mario hugo
+    <p class="encabezado">
+        Señor{{ $nombre["genero_saludoPrimerTR"]}}:<br>
+        {{ $nombre["tituloPrimerTR"]}} {{ $nombre["tribunal1"]}} {{ $nombre["nombrePrimerTR"]}}<br>
+        <u>Presente</u>
+    </p>
+    <p class="referencia">
+        <b>REF: <u>NOMBRAMIENTO DE TRIBUNALES</u></b>
+    </p>
+    <p class="cuerpo">
+        De mi consideración:<br>
+        <br>
+        Me es grato comunicarle a Usted que, ha sido designad{{ $nombre["genero_gramaticalPrimerTR"]}} Tribunal para la revisión del proyecto
+        en modalidad de {{ $nombre["modalidad"]}} titulado: <b class="nombproy">"{{ $nombre["nombreProyecto"]}}"</b> realizado por
+        {{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
+        de la carrera de Licenciatura en {{$nombre["Carrera"]}}.
+        <br>
+        En consecuencia, recomiendo dar cumplimiento a la <b>Resolución H. C. F. Nº104/2009</b> y a la vez solicitar a Ud. proceder
+        a la revisión necesaria para posteriormente hacernos llegar su informe, para lo que adjuntamos una copia de su Proyecto y Perfil.
+        <br>
+    </p>
+    <p class="despedida">
+        Al agradecer su colaboración saludo a Usted.<br>
+        <br>
+        Cordialmente,
+    </p>
+    <p class="firma">
+        {{$nombre["directorCarrera"]}}<br>
+        <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
+    </p>
+
+    <br><br>
+    <p class="espacio"></p>
+    <p class="fecha" id="current_date"> 
+        Cochabamba, {{ $nombre["fechaActual"]}}<br>
+        <b>{{ $nombre["codigocarrera"]}}-DIR.TR {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
+    </p>
+    <p class="encabezado">
+        Señor{{ $nombre["genero_saludoSegundoTR"]}}:<br>
+        {{ $nombre["tituloSegundoTR"]}} {{ $nombre["tribunal2"]}} {{ $nombre["nombreSegundoTR"]}}<br>
+        <u>Presente</u>
+    </p>
+    <p class="referencia">
+        <b>REF: <u>NOMBRAMIENTO DE TRIBUNALES</u></b>
+    </p>
+    <p class="cuerpo">
+        De mi consideración:<br>
+        <br>
+        Me es grato comunicarle a Usted que, ha sido designad{{ $nombre["genero_gramaticalSegundoTR"]}} Tribunal para la revisión del proyecto
+        en modalidad de {{ $nombre["modalidad"]}} titulado: <b class="nombproy">"{{ $nombre["nombreProyecto"]}}"</b> realizado por
+        {{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
+        de la carrera de Licenciatura en {{$nombre["Carrera"]}}.
+        <br>
+        En consecuencia, recomiendo dar cumplimiento a la <b>Resolución H. C. F. Nº104/2009</b> y a la vez solicitar a Ud. proceder
+        a la revisión necesaria para posteriormente hacernos llegar su informe, para lo que adjuntamos una copia de su Proyecto y Perfil.
+        <br>
+    </p>
+    <p class="despedida">
+        Al agradecer su colaboración saludo a Usted.<br>
+        <br>
+        Cordialmente,
+    </p>
+    <p class="firma">
+        {{$nombre["directorCarrera"]}}<br>
+        <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
+    </p>
+
+    <br><br>
+    <p class="espacio"></p>
+    <p class="fecha" id="current_date"> 
+        Cochabamba, {{ $nombre["fechaActual"]}}<br>
+        <b>{{ $nombre["codigocarrera"]}}-DIR.TR {{ $nombre["codCite"]}}/{{ $nombre["anio"]}}</b>
+    </p>
+    <p class="encabezado">
+        Señor{{ $nombre["genero_saludoTercerTR"]}}:<br>
+        {{ $nombre["tituloTercerTR"]}} {{ $nombre["tribunal3"]}} {{ $nombre["nombreTercerTR"]}}<br>
+        <u>Presente</u>
+    </p>
+    <p class="referencia">
+        <b>REF: <u>NOMBRAMIENTO DE TRIBUNALES</u></b>
+    </p>
+    <p class="cuerpo">
+        De mi consideración:<br>
+        <br>
+        Me es grato comunicarle a Usted que, ha sido designad{{ $nombre["genero_gramaticalTercerTR"]}} Tribunal para la revisión del proyecto
+        en modalidad de {{ $nombre["modalidad"]}} titulado: <b class="nombproy">"{{ $nombre["nombreProyecto"]}}"</b> realizado por
+        {{$nombre["pronombre"]}} Universitari{{ $nombre["generoGramatical"]}} <b>{{$nombre["apellidoEst"]}} {{$nombre["nombreEst"]}}</b>
+        de la carrera de Licenciatura en {{$nombre["Carrera"]}}.
+        <br>
+        En consecuencia, recomiendo dar cumplimiento a la <b>Resolución H. C. F. Nº104/2009</b> y a la vez solicitar a Ud. proceder
+        a la revisión necesaria para posteriormente hacernos llegar su informe, para lo que adjuntamos una copia de su Proyecto y Perfil.
+        <br>
+    </p>
+    <p class="despedida">
+        Al agradecer su colaboración saludo a Usted.<br>
+        <br>
+        Cordialmente,
+    </p>
+    <p class="firma">
+        {{$nombre["directorCarrera"]}}<br>
+        <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
     </p>
     
 </body>
