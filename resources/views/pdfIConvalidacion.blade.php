@@ -69,6 +69,10 @@
         .fecha{
             font-size: 15px
         }
+        .firma{
+            font-size: 15px;
+            margin-top: 150px
+        }
     </style>
 </head>
 
@@ -109,6 +113,10 @@
     <center>
     <p class="fecha" id="current_date"> 
         Cochabamba, {{ $nombre["fechaActual"]}}<br>
+    </p>
+    <p class="firma">
+        {{$nombre["nombJefe"]}}<br>
+        <b>JEF{{ $nombre["generoGramJefe"]}} DEL DEPARTAMENTO INF-SIS</b>
     </p>
     </center>
     

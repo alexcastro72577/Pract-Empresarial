@@ -309,28 +309,42 @@ return [
         ['header' => 'Autoridades',
         'can'  => 'admin'],
         [
-            'text'        => 'Gestion Director Carrera',
-            'url'         => '/gestionInfo',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Autoridades FCyT',
+            'icon'        => 'fas fa-fw fa-university',
             'can'  => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Gestion Decano',
+                    'url'         => '/gestionDD',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ],
+                [
+                    'text'        => 'Gestion Jefe de Dpto',
+                    'url'         => '/gestionDJD',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ]
+            ]
         ],
         [
-            'text'        => 'Gestion Decano',
-            'url'         => '/gestionDD',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Autoridades Carrera',
+            'icon'        => 'fas fa-fw fa-building',
             'can'  => 'admin',
-        ],
-        [
-            'text'        => 'Gestion Jefe de Carrera',
-            'url'         => '/gestionDJD',
-            'icon'        => 'far fa-fw fa-file',
-            'can'  => 'admin',
-        ],
-        [
-            'text'        => 'Gestion Tutor/Tribunal',
-            'url'         => '/gestionDTT',
-            'icon'        => 'far fa-fw fa-file',
-            'can'  => 'admin',
+            'submenu' => [
+                [
+                    'text'        => 'Gestion Director Carrera',
+                    'url'         => '/gestionInfo',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ],
+                [
+                    'text'        => 'Gestion Tutor/Tribunal',
+                    'url'         => '/gestionDTT',
+                    'icon'        => 'fas fa-fw fa-database',
+                    'can'  => 'admin',
+                ]
+            ]
         ],
         ['header' => 'Generar Documentos'],
         [
