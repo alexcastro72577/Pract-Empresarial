@@ -67,14 +67,15 @@
 <body class="formato_gestion">
     <div class="container">
         <br>
-        <h2 class="titulo">Gestión de</h2>
+        <h2 class="titulo">Editar Datos</h2>
         <h2 class="segundotitulo">Tutores/Tribunales</h2>
-        <form class="form_horizontal" method="post" action="{{url('/gestionDTT')}}" enctype="multipart/form-data">
+        <form class="form_horizontal" method="post" action="{{url('/gestionDTT/'.$datosTutor->id)}}" enctype="multipart/form-data">
         @csrf
-            Nombre(s): <input type="text" class="nombre" name="nombresTutor" value="" required>
+        {{method_field('PATCH')}}
+            Nombre(s): <input type="text" class="nombre" name="nombresTutor" value=" {{ $datosTutor->nombresTutor }} " required>
             <span class="error">* </span>
             <br><br>
-            Apellidos: <input type="text" class="apellido" name="apellidosTutor" value="" required>
+            Apellidos: <input type="text" class="apellido" name="apellidosTutor" value=" {{ $datosTutor->apellidosTutor }} " required>
             <span class="error">* </span>
             <br><br>
             Título: <select class="tituloprof" name="titulo">
@@ -91,34 +92,8 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary guardar">Guardar Datos</button>
+            <button type="submit" class="btn btn-primary guardar">Guardar Cambios</button>
         </form>
-        <table class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre Completo</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($datos as $dato)
-                <tr>      
-                    <th scope="row">{{ $dato-> titulo }} {{ $dato-> apellidosTutor }} {{ $dato-> nombresTutor }}</th>
-                    <td>
-                        <a href="{{url('gestionDTT/'.$dato-> id.'/edit' )}}" class = "btn btn-primary">
-                            Editar
-                        </a>
-                        <form action="{{url('gestionDTT/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            {{method_field('DELETE')}}
-                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-               
-            </tbody>
-        </table>
     </div>
 </body>
 @endsection
