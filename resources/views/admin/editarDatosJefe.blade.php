@@ -27,6 +27,13 @@
     }
     .nombre{
         margin-top: 20px;
+        margin-left: 47px;
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .nombredpto{
         margin-left: 10px;
         width:250px;
         border-radius: 5px;
@@ -34,7 +41,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .genero{
-        margin-left: 157px;
+        margin-left: 140px;
         width:110px;
         border-radius: 5px;
         border:2px solid;
@@ -53,7 +60,7 @@
 <body class="formato_gestion">
     <div class="container">
         <br>
-        <h2 class="titulo">Gestión de</h2>
+        <h2 class="titulo">Edición de</h2>
         <h2 class="segundotitulo">Jefe de Departamento</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionDJD/'.$datosJefe->id)}}" enctype="multipart/form-data">
         @csrf
@@ -61,7 +68,7 @@
             Nombre Jefe de Dpto: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value=" {{ $datosJefe-> NOMBREAUTORIDAD }} " required>
             <span class="error">* </span>
             <br><br>
-            Nombre del Departamento: <input type="text" class="nombre" name="DPTO" value=" {{ $datosJefe->DPTO }} " required>
+            Nombre del Departamento: <input type="text" class="nombredpto" name="DPTO" value=" {{ $datosJefe->DPTO }} " required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="GENEROAUTORIDAD">
