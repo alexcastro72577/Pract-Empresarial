@@ -321,7 +321,7 @@ return [
             'can'  => 'admin',
         ],
         [
-            'text'        => 'Gestion Jefe de Carrera',
+            'text'        => 'Gestion Jefe de Dpto.',
             'url'         => '/gestionDJD',
             'icon'        => 'far fa-fw fa-file',
             'can'  => 'admin',
