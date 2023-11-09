@@ -75,7 +75,7 @@
             <thead>
                 <tr>
                     <th scope="col">Nombre Completo Jefe</th>
-                    <th scope="col">DEPARTAMENTO</th>
+                    <th scope="col">Departamento</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>

@@ -14,7 +14,9 @@ class GestionDecanoController extends Controller
      */
     public function index()
     {   
-        return view('gestiondecano');
+        $datosDecano['datos'] = Autoridad::where('cargo','=', 'Decano')->get();
+        
+        return view('gestiondecano', $datosDecano);
     }
 
     /**
@@ -30,7 +32,11 @@ class GestionDecanoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosFormulario = request()->except('_token');
+        $datosFormulario['CARGO']= "Decano";
+        Autoridad::insert($datosFormulario);
+
+        return redirect('gestionDD');
 
     }
 
@@ -47,7 +53,9 @@ class GestionDecanoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $datosDecano = Autoridad::findOrFail($id);
+
+        return view('admin.editarDatosDecano', compact('datosDecano'));
     }
 
     /**
@@ -55,7 +63,10 @@ class GestionDecanoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datosDecano = request()->except('_token', '_method');
+        Autoridad::where('id', '=', $id)->update($datosDecano);
+        
+        return redirect('gestionDD');
     }
 
     /**
@@ -63,6 +74,7 @@ class GestionDecanoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Autoridad::destroy($id);
+        return redirect('gestionDD');
     }
 }
