@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Carrera;
-use App\Models\Materia_Egreso;
-use App\Models\Autoridad;
+use App\Models\Tutor;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -14,7 +12,9 @@ class GestionDocentesController extends Controller
      */
     public function index()
     {   
-        return view('gestiondocentes');
+        $datosTutores['datos'] = Tutor::all();
+        
+        return view('gestiondocentes', $datosTutores);
     }
 
     /**
@@ -30,7 +30,10 @@ class GestionDocentesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosFormulario = request()->except('_token');
+        Tutor::insert($datosFormulario);
+
+        return redirect('gestionDTT');
 
     }
 
@@ -47,7 +50,9 @@ class GestionDocentesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $datosTutor = Tutor::findOrFail($id);
+
+        return view('admin.editarDatosTutor', compact('datosTutor'));
     }
 
     /**
@@ -55,7 +60,10 @@ class GestionDocentesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datosTutor = request()->except('_token', '_method');
+        Tutor::where('id', '=', $id)->update($datosTutor);
+        
+        return redirect('gestionDTT');
     }
 
     /**
@@ -63,6 +71,7 @@ class GestionDocentesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Tutor::destroy($id);
+        return redirect('gestionDTT');
     }
 }

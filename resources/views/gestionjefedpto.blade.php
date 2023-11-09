@@ -18,7 +18,7 @@
     }
     .segundotitulo{
         text-transform: uppercase;
-        margin-left:390px
+        margin-left:350px
     }
     .form_horizontal{
         margin-top:50px;
@@ -54,13 +54,16 @@
     <div class="container">
         <br>
         <h2 class="titulo">Gestión de</h2>
-        <h2 class="segundotitulo">Jefe de Carrera</h2>
+        <h2 class="segundotitulo">Jefe de Departamento</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionDJD')}}" enctype="multipart/form-data">
         @csrf
-            Nuevo Jefe de Departamento: <input type="text" class="nombre" name="nombrejefe" value="" required>
+            Nombre Nuevo Jefe de Dpto: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value="" required>
             <span class="error">* </span>
             <br><br>
-            Género: <select class="genero" name="genero">
+            Nombre del Departamento: <input type="text" class="nombre" name="DPTO" value="" required>
+            <span class="error">* </span>
+            <br><br>
+            Género: <select class="genero" name="GENEROAUTORIDAD">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
@@ -68,6 +71,34 @@
             <br><br>
             <button type="submit" class="btn btn-primary guardar">Guardar Datos</button>
         </form>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre Completo Jefe</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($datos as $dato)
+                <tr>      
+                    <th scope="row"> {{ $dato-> NOMBREAUTORIDAD }} </th>
+                    <th scope="row"> {{ $dato-> DPTO }} </th>
+                    <td>
+                        <a href="{{url('gestionDJD/'.$dato-> id.'/edit' )}}" class = "btn btn-primary">
+                            Editar
+                        </a>
+                        <form action="{{url('gestionDJD/'.$dato-> id )}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+               
+            </tbody>
+        </table>
     </div>
 </body>
 @endsection
