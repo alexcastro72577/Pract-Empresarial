@@ -23,7 +23,7 @@
     .form_horizontal{
         margin-top:50px;
         margin-bottom:100px;
-        margin-left: 300px
+        margin-left: 350px
     }
     .nombre{
         margin-top: 20px;
@@ -56,7 +56,7 @@
     }
     .guardar{
         margin-top:50px;
-        margin-left:150px;
+        margin-left:100px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;
         background-color: #51A9FF;
@@ -71,8 +71,6 @@
         <h2 class="segundotitulo">Tutores/Tribunales</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionDTT')}}" enctype="multipart/form-data">
         @csrf
-            Datos Nuevo Tutor/Tribunal
-            <br><br>
             Nombre: <input type="text" class="nombre" name="nombrejefe" value="" required>
             <span class="error">* </span>
             <br><br>
@@ -87,7 +85,7 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            Genero: <select class="genero" name="genero">
+            Género: <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
