@@ -13,7 +13,7 @@ class RepositorioController extends Controller
     public function index()
     {
         $datosRepositorio['datos'] = Repositorio_Documento::join('estudiantes', 'estudiantes.id', '=', 'repositorio_documentos.id_estudiante')
-              		->get(['estudiantes.NOMBREEST', 'repositorio_documentos.tipoDocumento', 'repositorio_documentos.documento', 'repositorio_documentos.created_at']);
+              		->get(['estudiantes.NOMBREEST', 'estudiantes.APELLIDOEST', 'repositorio_documentos.id', 'repositorio_documentos.tipoDocumento', 'repositorio_documentos.documento', 'repositorio_documentos.created_at']);
         return view('admin.repositorioDocs', $datosRepositorio);
     }
 
@@ -62,6 +62,7 @@ class RepositorioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Repositorio_Documento::destroy($id);
+        return redirect('repositorio');
     }
 }
