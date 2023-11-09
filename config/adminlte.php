@@ -315,6 +315,12 @@ return [
             'can'  => 'admin',
         ],
         [
+            'text'        => 'Gestion Decano',
+            'url'         => '/gestionDD',
+            'icon'        => 'far fa-fw fa-file',
+            'can'  => 'admin',
+        ],
+        [
             'text'        => 'Gestion Jefe de Carrera',
             'url'         => '/gestionDJD',
             'icon'        => 'far fa-fw fa-file',

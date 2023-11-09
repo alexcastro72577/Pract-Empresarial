@@ -18,7 +18,7 @@
     }
     .segundotitulo{
         text-transform: uppercase;
-        margin-left:390px
+        margin-left:455px
     }
     .form_horizontal{
         margin-top:50px;
@@ -34,7 +34,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .genero{
-        margin-left: 157px;
+        margin-left: 60px;
         width:110px;
         border-radius: 5px;
         border:2px solid;
@@ -54,10 +54,10 @@
     <div class="container">
         <br>
         <h2 class="titulo">Gestión de</h2>
-        <h2 class="segundotitulo">Jefe de Carrera</h2>
-        <form class="form_horizontal" method="post" action="{{url('/gestionDJD')}}" enctype="multipart/form-data">
+        <h2 class="segundotitulo">Decano</h2>
+        <form class="form_horizontal" method="post" action="{{url('/gestionDD')}}" enctype="multipart/form-data">
         @csrf
-            Nuevo Jefe de Departamento: <input type="text" class="nombre" name="nombrejefe" value="" required>
+            Nuevo Decano: <input type="text" class="nombre" name="nombrejefe" value="" required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="genero">

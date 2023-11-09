@@ -10,6 +10,7 @@ use App\Http\Controllers\NombramientoTutorController;
 use App\Http\Controllers\PdfNombramientoTutorController;
 use App\Http\Controllers\InformeConvalidacionController;
 use App\Http\Controllers\PdfInformeConvalidacionController;
+use App\Http\Controllers\GestionDecanoController;
 use App\Http\Controllers\GestionDocentesController;
 use App\Http\Controllers\GestionJefeDptoController;
 use App\Http\Controllers\NombramientoTribunalController;
@@ -46,6 +47,7 @@ Route::middleware(["auth"])->group(function () {
 
 Route::middleware(["auth", "solo_usuario_administrador"])->group(function () {
 	Route::resource('/gestionInfo', GestionInfoController::class);
+    Route::resource('/gestionDD', GestionDecanoController::class);
     Route::resource('/gestionDJD', GestionJefeDptoController::class);
     Route::resource('/gestionDTT', GestionDocentesController::class);
     Route::resource('/admin', AdminMenuController::class);
