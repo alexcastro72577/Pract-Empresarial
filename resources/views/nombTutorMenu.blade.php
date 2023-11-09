@@ -124,7 +124,11 @@
             </select>
             <span class="error">* </span>
             <br><br>
-            Docente Tutor: <input typer="text" class="tutor" name="tutor" value="" required></input>
+            Docente Tutor: <select class="tutor" name="tutor">
+                @foreach($tutores as $tutor)
+                <option  value="{{$tutor->apellidosTutor}}">{{$tutor->titulo}} {{$tutor->apellidosTutor}} {{$tutor->nombresTutor}}</option>
+                @endforeach
+            </select>
             <span class="error">*</span>
             <br><br>
             Nombre(s): <input type="text" class="nombre" name="nombreEst" value="" required>

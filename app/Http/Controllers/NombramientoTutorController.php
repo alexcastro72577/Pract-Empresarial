@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Carrera;
 use App\Models\Autoridad;
+use App\Models\Tutor;
 use App\Models\Proyecto_Grado;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Repositorio_Documento;
@@ -20,6 +21,7 @@ class NombramientoTutorController extends Controller
     {
         $datos['carreras'] = Carrera::all();
         $datos['autoridades'] = Autoridad::all();
+        $datos['tutores'] = Tutor::all();
         return view('nombTutorMenu', $datos);
     }
 
@@ -41,8 +43,10 @@ class NombramientoTutorController extends Controller
         Estudiante::insert($datosEstudiante);
 
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
-
         $directorCarrera = Autoridad::where('id_carrera','=', $carrera)->first()->NOMBREAUTORIDAD;
+
+        $nombreTutor = Tutor::where('apellidosTutor','=', $datosFormulario['tutor'])->first()->nombresTutor;
+        $tituloTutor = Tutor::where('apellidosTutor','=', $datosFormulario['tutor'])->first()->titulo;
 
         $datosProyecto = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'anio', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'tutor');
         Proyecto_Grado::insert($datosProyecto);
@@ -83,6 +87,8 @@ class NombramientoTutorController extends Controller
         }
 
         $datosFormulario['directorCarrera']=$directorCarrera;
+        $datosFormulario['nombreTutor']=$nombreTutor;
+        $datosFormulario['tituloTutor']=$tituloTutor;
         $datosFormulario['fechaActual']=$fechaActual;
         $datosFormulario['pronombre']=$pronombre;
         $datosFormulario['generoGramatical']=$genero_gramatical;
@@ -94,7 +100,7 @@ class NombramientoTutorController extends Controller
         $nombreDocumento = "Respuesta Solicitud Nombramiento Tutor - ".$datosFormulario['nombreEst']." ".$datosFormulario['apellidoEst']." - ".$fechaNombre.".pdf";
 
         Pdf::loadView('pdfNTutor', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
-        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'nombreProyecto', 'codSidoc', 'tutor');
+        $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'nombreProyecto', 'codCite', 'tutor');
         $datosRepo['id_estudiante'] = $estudiante;
         $datosRepo['tipoDocumento'] = "Respuesta Solicitud Nombramiento Tutor";
         $datosRepo['documento'] = $nombreDocumento;
