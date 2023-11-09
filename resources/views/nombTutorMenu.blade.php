@@ -19,8 +19,8 @@
         margin-left: 370px
     }
     .form-horizontal{
-        margin-top:35px;
-        margin-bottom:50px;
+        margin-top: 70px;
+        margin-bottom: 50px;
         margin-left: 350px;
     }
     .carrera{

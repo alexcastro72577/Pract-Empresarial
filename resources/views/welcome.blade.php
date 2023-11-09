@@ -18,8 +18,8 @@
         margin-left:420px
     }
     .form-horizontal{
-        margin-top:40px;
-        margin-bottom:100px;
+        margin-top: 70px;
+        margin-bottom: 100px;
         margin-left: 350px
     }
     .carrera{
@@ -90,7 +90,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .b{
-        margin-top:25px;
+        margin-top:40px;
         margin-left:120px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;

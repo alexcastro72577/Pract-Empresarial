@@ -46,6 +46,13 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .genero{
+        margin-left: 145px;
+        width:110px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
     .guardar{
         margin-top:50px;
         margin-left:150px;
@@ -70,6 +77,12 @@
             <span class="error">* </span>
             <br><br>
             Nuevo Director de Carrera: <input type="text" class="ndirector" name="nombreautoridad" value="" required>
+            <span class="error">* </span>
+            <br><br>
+            Género: <select class="genero" name="genero">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
             <span class="error">* </span>
             <br><br>
             <button type="submit" class="btn btn-primary guardar">Guardar Datos</button>
