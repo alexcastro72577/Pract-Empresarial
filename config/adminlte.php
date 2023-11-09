@@ -348,19 +348,25 @@ return [
         ],
         ['header' => 'Generar Documentos'],
         [
+            'text'        => 'Nombramientos',
+            'icon'        => 'fas fa-fw fa-gavel',
+            'submenu' => [
+                [
+                    'text' => 'De Tutor',
+                    'url'  => '/nombtutor',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text'    => 'De Tribunales',
+                    'url'  => '/nombtribunal',
+                    'icon'    => 'fas fa-fw fa-users',
+                ]
+            ]
+        ],
+        [
             'text' => 'Certificado de Egreso',
             'url'  => '/form_egreso',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text' => 'Nombramiento de Tutor',
-            'url'  => '/nombtutor',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text'    => 'Nombramiento de Tribunal',
-            'url'  => '/nombtribunal',
-            'icon'    => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-graduation-cap',
         ],
         [
             'text'    => 'Informe de Convalidación',
