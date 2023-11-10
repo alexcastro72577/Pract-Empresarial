@@ -26,15 +26,22 @@
         margin-left: 300px
     }
     .nombre{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 10px;
-        width:250px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .nombrefac{
+        margin-left: 60px;
+        width: 250px;
+        border-radius: 5px;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .genero{
-        margin-left: 60px;
+        margin-left: 70px;
         width:110px;
         border-radius: 5px;
         border:2px solid;
@@ -60,7 +67,7 @@
             Nombre Decano: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value="" required>
             <span class="error">* </span>
             <br><br>
-            Facultad: <input type="text" class="nombre" name="FACULTAD" value="" required>
+            Facultad: <input type="text" class="nombrefac" name="FACULTAD" value="" required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="GENEROAUTORIDAD">

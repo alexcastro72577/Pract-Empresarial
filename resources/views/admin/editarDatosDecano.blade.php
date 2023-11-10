@@ -26,23 +26,30 @@
         margin-left: 300px
     }
     .nombre{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 10px;
-        width:250px;
+        width: 250px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .nombrefac{
+        margin-left: 60px;
+        width: 250px;
+        border-radius: 5px;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .genero{
-        margin-left: 60px;
-        width:110px;
+        margin-left: 70px;
+        width: 110px;
         border-radius: 5px;
-        border:2px solid;
+        border: 2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .guardar{
         margin-top:50px;
-        margin-left:150px;
+        margin-left:130px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;
         background-color: #51A9FF;
@@ -53,7 +60,7 @@
 <body class="formato_gestion">
     <div class="container">
         <br>
-        <h2 class="titulo">Gestión de</h2>
+        <h2 class="titulo">Edición de</h2>
         <h2 class="segundotitulo">Decano</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionDD/'.$datosDecano->id)}}" enctype="multipart/form-data">
         @csrf
@@ -61,7 +68,7 @@
             Nombre Decano: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value=" {{ $datosDecano-> NOMBREAUTORIDAD }} " required>
             <span class="error">* </span>
             <br><br>
-            Facultad: <input type="text" class="nombre" name="FACULTAD" value=" {{ $datosDecano-> FACULTAD }}" required>
+            Facultad: <input type="text" class="nombrefac" name="FACULTAD" value=" {{ $datosDecano-> FACULTAD }}" required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="GENEROAUTORIDAD">

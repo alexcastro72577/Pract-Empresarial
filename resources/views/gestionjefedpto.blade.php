@@ -33,8 +33,15 @@
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
+    .nombredpto{
+        margin-left: 20px;
+        width:250px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
     .genero{
-        margin-left: 157px;
+        margin-left: 150px;
         width:110px;
         border-radius: 5px;
         border:2px solid;
@@ -60,7 +67,7 @@
             Nombre Nuevo Jefe de Dpto: <input type="text" class="nombre" name="NOMBREAUTORIDAD" value="" required>
             <span class="error">* </span>
             <br><br>
-            Nombre del Departamento: <input type="text" class="nombre" name="DPTO" value="" required>
+            Nombre del Departamento: <input type="text" class="nombredpto" name="DPTO" value="" required>
             <span class="error">* </span>
             <br><br>
             Género: <select class="genero" name="GENEROAUTORIDAD">
