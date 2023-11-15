@@ -314,13 +314,13 @@ return [
             'can'  => 'admin',
             'submenu' => [
                 [
-                    'text'        => 'Gestion Decano',
+                    'text'        => 'Gestión Decano',
                     'url'         => '/gestionDD',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
                 ],
                 [
-                    'text'        => 'Gestion Jefe de Dpto',
+                    'text'        => 'Gestión Jefe de Dpto',
                     'url'         => '/gestionDJD',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
@@ -333,13 +333,13 @@ return [
             'can'  => 'admin',
             'submenu' => [
                 [
-                    'text'        => 'Gestion Director Carrera',
+                    'text'        => 'Gestión Director Carrera',
                     'url'         => '/gestionInfo',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
                 ],
                 [
-                    'text'        => 'Gestion Tutor/Tribunal',
+                    'text'        => 'Gestión Tutor/Tribunal',
                     'url'         => '/gestionDTT',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
