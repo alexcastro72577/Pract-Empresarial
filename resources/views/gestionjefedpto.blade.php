@@ -13,7 +13,7 @@
     }
     .titulo{
         text-transform: uppercase;
-        margin-top:50px;
+        margin-top:10px;
         margin-left:430px
     }
     .segundotitulo{

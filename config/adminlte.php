@@ -192,9 +192,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-success elevation-4',
+    'classes_sidebar' => 'sidebar-dark-red elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-info navbar-light',
+    'classes_topnav' => 'navbar-blue navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -314,13 +314,13 @@ return [
             'can'  => 'admin',
             'submenu' => [
                 [
-                    'text'        => 'Gestion Decano',
+                    'text'        => 'Gestión Decano',
                     'url'         => '/gestionDD',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
                 ],
                 [
-                    'text'        => 'Gestion Jefe de Dpto',
+                    'text'        => 'Gestión Jefe de Dpto',
                     'url'         => '/gestionDJD',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
@@ -333,13 +333,13 @@ return [
             'can'  => 'admin',
             'submenu' => [
                 [
-                    'text'        => 'Gestion Director Carrera',
+                    'text'        => 'Gestión Director Carrera',
                     'url'         => '/gestionInfo',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
                 ],
                 [
-                    'text'        => 'Gestion Tutor/Tribunal',
+                    'text'        => 'Gestión Tutor/Tribunal',
                     'url'         => '/gestionDTT',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',

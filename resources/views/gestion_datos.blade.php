@@ -13,7 +13,7 @@
     }
     .titulo{
         text-transform: uppercase;
-        margin-top:50px;
+        margin-top:10px;
         margin-left:430px
     }
     .segundotitulo{
@@ -21,8 +21,8 @@
         margin-left:360px
     }
     .form_horizontal{
-        margin-top:100px;
-        margin-bottom:100px;
+        margin-top:30px;
+        margin-bottom:30px;
         margin-left: 300px
     }
     .ncarrera{
@@ -54,7 +54,7 @@
         box-shadow: 5px 5px 10px gray
     }
     .guardar{
-        margin-top:50px;
+        margin-top:10px;
         margin-left:150px;
         border-radius: 10px;
         box-shadow: 5px 5px 10px gray;
