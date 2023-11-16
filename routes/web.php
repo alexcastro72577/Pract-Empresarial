@@ -36,7 +36,7 @@ Route::get('/', function () {
 
 Route::middleware(["auth"])->group(function () {
     Route::resource('/form_egreso', FormularioCertifEgresoController::class);
-    Route::resource('/pdf', PdfController::class);
+    Route::resource('/pdf', PdfCertifEgresoController::class);
     Route::resource('/usuario', UserMenuController::class);
     Route::resource('/nombtutor', NombramientoTutorController::class);
     Route::resource('/pdfNT', PdfNombramientoTutorController::class);

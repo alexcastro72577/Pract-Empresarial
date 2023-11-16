@@ -21,7 +21,7 @@ class FormularioCertifEgresoController extends Controller
     public function index()
     {   
         $datos['carreras'] = Carrera::all();
-        return view('welcome', $datos);
+        return view('certifEgreso', $datos);
     }
 
     /**
@@ -97,7 +97,7 @@ class FormularioCertifEgresoController extends Controller
 
         $fecha = Carbon::now()->setTimezone('America/La_Paz');
         $fechaNombre = str_replace ( ":", ' ', $fecha);
-        Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/Certificado Finalizacion Plan de Estudios - '.$datosFormulario['nombreEst'].' '.$datosFormulario['apellidoEst'].' - '.$fechaNombre.'.pdf');
+        Pdf::loadView('pdfCertifEgreso', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/Certificado Finalizacion Plan de Estudios - '.$datosFormulario['nombreEst'].' '.$datosFormulario['apellidoEst'].' - '.$fechaNombre.'.pdf');
         $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias');
         $datosRepo['id_estudiante'] = $estudiante;
         $datosRepo['tipoDocumento'] = "Certificado de Egreso";
@@ -107,7 +107,7 @@ class FormularioCertifEgresoController extends Controller
         Repositorio_Documento::insert($datosRepo);
 
 
-        return Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
+        return Pdf::loadView('pdfCertifEgreso', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
 
     }
 
