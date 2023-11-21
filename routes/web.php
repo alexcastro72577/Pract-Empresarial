@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormularioCertifEgresoController;
-use App\Http\Controllers\GestionInfoController;
+use App\Http\Controllers\GestionDirectorController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserMenuController;
 use App\Http\Controllers\AdminMenuController;
@@ -36,7 +36,7 @@ Route::get('/', function () {
 
 Route::middleware(["auth"])->group(function () {
     Route::resource('/form_egreso', FormularioCertifEgresoController::class);
-    Route::resource('/pdf', PdfController::class);
+    Route::resource('/pdf', PdfCertifEgresoController::class);
     Route::resource('/usuario', UserMenuController::class);
     Route::resource('/nombtutor', NombramientoTutorController::class);
     Route::resource('/pdfNT', PdfNombramientoTutorController::class);
@@ -50,7 +50,7 @@ Route::middleware(["auth"])->group(function () {
 });
 
 Route::middleware(["auth", "solo_usuario_administrador"])->group(function () {
-	Route::resource('/gestionInfo', GestionInfoController::class);
+	Route::resource('/gestionDirector', GestionDirectorController::class);
     Route::resource('/gestionDD', GestionDecanoController::class);
     Route::resource('/gestionDJD', GestionJefeDptoController::class);
     Route::resource('/gestionDTT', GestionDocentesController::class);

@@ -54,7 +54,7 @@
 <body class="formato_gestion">
     <div class="container">
         <h2 class="titulo">Editar Datos</h2>
-        <form class="form_horizontal" method="post" action="{{url('/gestionInfo/'.$datosGeneral->id )}}" enctype="multipart/form-data">
+        <form class="form_horizontal" method="post" action="{{url('/gestionDirector/'.$datosGeneral->id )}}" enctype="multipart/form-data">
         @csrf
         {{method_field('PATCH')}}
             Nombre Director de Carrera: <input type="text" class="ndirector" name="NOMBREAUTORIDAD" value=" {{ $datosGeneral->NOMBREAUTORIDAD }}" required>

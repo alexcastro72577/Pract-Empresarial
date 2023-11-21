@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PdfNombramientoTutorController extends Controller
+class PdfCertifEgresoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pdfNTutor');
+        return view('pdfCertifEgreso');
     }
-
+   
 }

@@ -57,7 +57,7 @@
       </div>
       <br><br>
       <div class="gestion">
-        <button type="button" class="btn btn-primary a" id="b3" onclick="location='/gestionInfo'">Gestionamiento<br> de Informacion</button>
+        <button type="button" class="btn btn-primary a" id="b3" onclick="location='/gestionDirector'">Gestionamiento<br> de Informacion</button>
       </div>
     </div>
   </div>
