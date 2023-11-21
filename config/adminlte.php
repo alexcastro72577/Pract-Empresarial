@@ -334,7 +334,7 @@ return [
             'submenu' => [
                 [
                     'text'        => 'Gestión Director Carrera',
-                    'url'         => '/gestionInfo',
+                    'url'         => '/gestionDirector',
                     'icon'        => 'fas fa-fw fa-database',
                     'can'  => 'admin',
                 ],

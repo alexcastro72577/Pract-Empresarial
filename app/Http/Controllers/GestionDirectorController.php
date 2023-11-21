@@ -7,7 +7,7 @@ use App\Models\Autoridad;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
-class GestionInfoController extends Controller
+class GestionDirectorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class GestionInfoController extends Controller
         $datosDirectorCarrera['datos'] = Autoridad::join('carreras', 'carreras.id', '=', 'autoridades.id')
                     ->join('materias_egreso', 'materias_egreso.id', '=', 'carreras.id')
               		->get(['carreras.NOMBRECARRERA', 'autoridades.NOMBREAUTORIDAD', 'materias_egreso.NOMBMATEG', 'autoridades.id']);
-        return view('gestion_datos', $datosDirectorCarrera);
+        return view('gestiondirector', $datosDirectorCarrera);
     }
 
     /**
@@ -35,8 +35,6 @@ class GestionInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //$datosEstudiante = request()->all();
-        //return response()->json($datosEstudiante);
         $datosFormulario = request()->except('_token');
 
         $datosCarrera = request()->except('_token', 'nombmateg', 'nombreautoridad');
@@ -45,6 +43,7 @@ class GestionInfoController extends Controller
         $datosDirectorCarrera = request()->except('_token', 'nombrecarrera', 'nombmateg');
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['nombrecarrera'])->first()->id;
         $datosDirectorCarrera['ID_CARRERA']=$carrera;
+        $datosDirectorCarrera['CARGO']= 'Director';
         Autoridad::insert($datosDirectorCarrera);
 
         $datosMateriaEgreso = request()->except('_token', 'nombrecarrera', 'nombreautoridad');
@@ -57,16 +56,8 @@ class GestionInfoController extends Controller
         $update->ID_MATERIA = $materia;
         $update->save();
 
-        return redirect('gestionInfo');
+        return redirect('gestionDirector');
 
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -77,7 +68,7 @@ class GestionInfoController extends Controller
         $datosGeneral = Autoridad::findOrFail($id);
         $datosCarrera = Carrera::findOrFail($id);
         $datosMateria = Materia_Egreso::findOrFail($id);
-        return view('admin.editarDatos', compact('datosGeneral', 'datosCarrera', 'datosMateria'));
+        return view('admin.editarDatosDirector', compact('datosGeneral', 'datosCarrera', 'datosMateria'));
     }
 
     /**
@@ -93,7 +84,7 @@ class GestionInfoController extends Controller
         Carrera::where('id', '=', $id)->update($datosCarrera);
         Materia_Egreso::where('id', '=', $id)->update($datosMateria);
         
-        return redirect('gestionInfo');
+        return redirect('gestionDirector');
     }
 
     /**
@@ -104,6 +95,6 @@ class GestionInfoController extends Controller
         Autoridad::destroy($id);
         Carrera::destroy($id);
         Materia_Egreso::destroy($id);
-        return redirect('gestionInfo');
+        return redirect('gestionDirector');
     }
 }
