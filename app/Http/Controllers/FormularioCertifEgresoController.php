@@ -21,15 +21,7 @@ class FormularioCertifEgresoController extends Controller
     public function index()
     {   
         $datos['carreras'] = Carrera::all();
-        return view('welcome', $datos);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('certifEgreso', $datos);
     }
 
     /**
@@ -43,14 +35,19 @@ class FormularioCertifEgresoController extends Controller
         Estudiante::insert($datosEstudiante);
 
         $datosFecha = request()->except('_token', 'Carrera','numMaterias', 'numGestion', 'nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
-        Fecha::insert($datosFecha);
+        if (Fecha::where('anio', '=', $datosFormulario['anio'])->doesntExist()) {
+            Fecha::insert($datosFecha);
+        }
 
         $datosGestion = request()->except('_token', 'Carrera', 'numMaterias', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
         $fecha = Fecha::where('anio','=', $datosFormulario['anio'])->first()->id;
         $carrera = Carrera::where('nombrecarrera','=', $datosFormulario['Carrera'])->first()->id;
         $datosGestion['ID_FECHA']=$fecha;
         $datosGestion['ID_CARRERA']=$carrera;
-        Gestion::insert($datosGestion);
+        if (Gestion::where('numgestion', '=', $datosFormulario['numGestion'])->where('id_fecha', '=', $fecha)
+            ->where('id_carrera', '=', $carrera)->doesntExist()) {
+            Gestion::insert($datosGestion);
+        }
 
         $datosKardex = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp');
         $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
@@ -97,7 +94,7 @@ class FormularioCertifEgresoController extends Controller
 
         $fecha = Carbon::now()->setTimezone('America/La_Paz');
         $fechaNombre = str_replace ( ":", ' ', $fecha);
-        Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/Certificado Finalizacion Plan de Estudios - '.$datosFormulario['nombreEst'].' '.$datosFormulario['apellidoEst'].' - '.$fechaNombre.'.pdf');
+        Pdf::loadView('pdfCertifEgreso', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/Certificado Finalizacion Plan de Estudios - '.$datosFormulario['nombreEst'].' '.$datosFormulario['apellidoEst'].' - '.$fechaNombre.'.pdf');
         $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias');
         $datosRepo['id_estudiante'] = $estudiante;
         $datosRepo['tipoDocumento'] = "Certificado de Egreso";
@@ -107,39 +104,8 @@ class FormularioCertifEgresoController extends Controller
         Repositorio_Documento::insert($datosRepo);
 
 
-        return Pdf::loadView('pdf', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
+        return Pdf::loadView('pdfCertifEgreso', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
