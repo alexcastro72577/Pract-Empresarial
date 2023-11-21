@@ -84,3 +84,4 @@ class DeclaracionJuradaController extends Controller
 
         return Pdf::loadView('pdfDecJurada', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
     }
+}
