@@ -373,6 +373,11 @@ return [
             'url'  => '/inf_conv',
             'icon'    => 'fas fa-fw fa-file',
         ],
+        [
+            'text'    => 'Declaración Jurada',
+            'url'  => '/dec_jur',
+            'icon'    => 'fas fa-fw fa-file',
+        ],
         ['header' => 'Seguimiento'],
         [
             'text'       => 'Repositorio',

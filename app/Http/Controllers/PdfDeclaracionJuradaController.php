@@ -11,7 +11,7 @@ class PdfDeclaracionJuradaController extends Controller
      */
     public function index()
     {
-        return view('pdfDecJurada');
+        return view('pdfdec_jur');
     }
 
     /**
