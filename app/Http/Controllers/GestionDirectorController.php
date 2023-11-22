@@ -16,8 +16,8 @@ class GestionDirectorController extends Controller
     {   
         $datosCarrera = Carrera::get('NOMBRECARRERA');
         $datosMateriaEgreso = Materia_Egreso::get('NOMBMATEG');
-        $datosDirectorCarrera['datos'] = Autoridad::join('carreras', 'carreras.id', '=', 'autoridades.id')
-                    ->join('materias_egreso', 'materias_egreso.id', '=', 'carreras.id')
+        $datosDirectorCarrera['datos'] = Autoridad::join('carreras', 'carreras.id', '=', 'autoridades.ID_CARRERA')
+                    ->join('materias_egreso', 'materias_egreso.id', '=', 'carreras.ID_MATERIA')
               		->get(['carreras.NOMBRECARRERA', 'autoridades.NOMBREAUTORIDAD', 'materias_egreso.NOMBMATEG', 'autoridades.id']);
         return view('gestiondirector', $datosDirectorCarrera);
     }
@@ -29,7 +29,7 @@ class GestionDirectorController extends Controller
     {
         $datosFormulario = request()->except('_token');
 
-        $datosCarrera = request()->except('_token', 'nombmateg', 'nombreautoridad');
+        $datosCarrera = request()->except('_token', 'nombmateg', 'nombreautoridad', 'generoautoridad');
         Carrera::insert($datosCarrera);
 
         $datosDirectorCarrera = request()->except('_token', 'nombrecarrera', 'nombmateg');
@@ -38,11 +38,10 @@ class GestionDirectorController extends Controller
         $datosDirectorCarrera['CARGO']= 'Director';
         Autoridad::insert($datosDirectorCarrera);
 
-        $datosMateriaEgreso = request()->except('_token', 'nombrecarrera', 'nombreautoridad');
+        $datosMateriaEgreso = request()->except('_token', 'nombrecarrera', 'nombreautoridad', 'generoautoridad');
         $datosMateriaEgreso['ID_CARRERA']=$carrera;
         Materia_Egreso::insert($datosMateriaEgreso);
 
-        // $updateCarrera = Carrera::findOrFail($id);
         $update=Carrera::where('nombrecarrera','=', $datosFormulario['nombrecarrera'])->first();
         $materia = Materia_Egreso::where('nombmateg','=', $datosFormulario['nombmateg'])->first()->id;
         $update->ID_MATERIA = $materia;
