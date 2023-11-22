@@ -89,7 +89,5 @@
         {{$nombre["directorCarrera"]}}<br>
         <b class="cargo">DIRECTOR CARRERA DE {{$nombre["Carrera"]}}</b>
     </p>
-    
 </body>
-
 </html>
