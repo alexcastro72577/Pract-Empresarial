@@ -68,7 +68,7 @@
     </span>
     <table class="th">
         <tr>
-        <td>Yo {{ $nombre['nombreTutor']}} {{ $nombre['nombDocente']}}<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
+        <td>Yo {{ $nombre['nombreTutor']}} {{ $nombre['nombDocente']}}<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
         </tr>
     </table>
     <table>
@@ -96,58 +96,58 @@
         </tr>
         <tr>
             <td>2) Administrativo</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>3) Curso Intersemestral (Invierno o Verano)</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>4) Programa de Titurlación de Alumnos PTAANG</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>5) Exámen de Ingreso</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>6) Exámen de Grado</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>7) Consultoría en línea</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>8)Consultoría por producto</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>9) Asesoría de Tesis</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>10) Posgrado (docencia, tutoria virtual, apoyo logístico, tribunal, tutor, diseño de módulo/programa, coordinador de programa, coordinación de área y otros)</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td>11) Otros</td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
         <tr>
             <td><b>TOTAL:</b></td>
-            <td> - </td>
-            <td> - </td>
+            <td class='centro'> - </td>
+            <td class='centro'> - </td>
         </tr>
     </table>
     <span class='text_footer'>
@@ -162,7 +162,7 @@
         <tr>
             <td><b class='relleno'>a</b>Nombre de la Institución Pública<b class='relleno'>aaa</b></td>
             <td><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> </td>
             <td><b class='relleno'>aaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaa</b></td>
         </tr>
         <tr>
@@ -177,7 +177,7 @@
         <tr>
             <td><b class='relleno'>a</b>Nombre de la Institución Pública<b class='relleno'>aaa</b></td>
             <td><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> </td>
             <td><b class='relleno'>aaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaa</b></td>
         </tr>
         <tr>
@@ -192,7 +192,7 @@
         <tr>
             <td><b class='relleno'>a</b>Nombre de la Institución Pública<b class='relleno'>aaa</b></td>
             <td><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> </td>
             <td><b class='relleno'>aaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaa</b></td>
         </tr>
         <tr>
@@ -207,7 +207,7 @@
         <tr>
             <td><b class='relleno'>a</b>Nombre de la Institución Pública<b class='relleno'>aaa</b></td>
             <td><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> </td>
             <td><b class='relleno'>aaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaa</b></td>
         </tr>
         <tr>
@@ -233,7 +233,7 @@
     <table>
         <tr>
             <td><b class='relleno'>a</b>FIRMA:<b class='relleno'>a</b></td>
-            <td> <b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b> </td>
+            <td> <br><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b> </td>
             <td><b class='relleno'>a</b>ACLARACIÓN DE LA FIRMA:<b class='relleno'>a</b></td>
             <td class='centro'>{{ $nombre['nombreTutor']}} {{ $nombre['nombDocente']}}</td>
         </tr>
@@ -241,7 +241,7 @@
             <td><b class='relleno'>a</b>No. C.I. o Pasaporte:<b class='relleno'>a</b></td>
             <td><b class='relleno'>a</b>{{ $nombre['ci']}}</td>
             <td><b class='relleno'>a</b>Expedido en: {{ $nombre['exp']}}<b class='relleno'>a</b></td>
-            <td> <b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b> </td>
+            <td> <b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b> </td>
         </tr>
     </table>
     <table class="th">

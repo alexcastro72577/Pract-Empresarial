@@ -376,7 +376,7 @@ return [
         [
             'text'    => 'Declaración Jurada',
             'url'  => '/dec_jur',
-            'icon'    => 'fas fa-fw fa-file',
+            'icon'    => 'fas fa-fw fa-paperclip',
         ],
         ['header' => 'Seguimiento'],
         [
