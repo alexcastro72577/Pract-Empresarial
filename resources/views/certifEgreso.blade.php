@@ -117,7 +117,7 @@
 
             <span class="error">* </span>
             <br><br>
-            <font color="black">Gestión:</font> <select class="gestion" name="numGestion">
+            Gestión: <select class="gestion" name="numGestion">
                 <option value="I">I</option>
                 <option value="II">II</option>
                 <option value="III">III</option>
@@ -133,13 +133,13 @@
             Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
             <span class="error">* </span>
             <br><br>
-            <font color="black">Género:</font> <select class="genero" name="genero">
+            Género: <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
             <span class="error">* </span>
             <br><br>
-            C.I.: <input type="number" class="CI" name="ci" value="" required>
+            C.I.: <input type="text" class="CI" name="ci" value="" required>
             <span class="error">* </span>
             <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>

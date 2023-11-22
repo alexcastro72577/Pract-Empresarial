@@ -82,7 +82,7 @@
             Remuneración Percibida: <input type="text" class="remuneracion" name="remuneracion" value="" required>
             <span class="error">* </span>
             <br><br>
-            C.I.: <input type="number" class="CI" name="ci" value="" required>
+            C.I.: <input type="text" class="CI" name="ci" value="" required>
             <span class="error">* </span>
             <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
