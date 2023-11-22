@@ -117,7 +117,7 @@
             
         <form class="form-horizontal" method="post" action="{{url('/nombtutor')}}" enctype="multipart/form-data">
             @csrf
-            <font color="black">Carrera:</font> <select class="carrera" name="Carrera">
+            Carrera: <select class="carrera" name="Carrera">
                 @foreach($carreras as $carrera)
                 <option  value="{{$carrera->NOMBRECARRERA}}">{{$carrera->NOMBRECARRERA}}</option>
                 @endforeach
@@ -137,13 +137,13 @@
             Apellido(s): <input type="text" class="apellido" name="apellidoEst" value="" required>
             <span class="error">* </span>
             <br><br>
-            <font color="black">Género:</font> <select class="genero" name="genero">
+            Género: <select class="genero" name="genero">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
             <span class="error">* </span>
             <br><br>
-            C.I.: <input type="number" class="CI" name="ci" value="" required>
+            C.I.: <input type="text" class="CI" name="ci" value="" required>
             <span class="error">* </span>
             <span class="seccionexp">Exp.: <select class="exp" name="exp">
                 <option value="CBBA">CBBA</option>
