@@ -134,7 +134,21 @@
                     </td>
                 </tr>
                 @endforeach
-               
+                @foreach($infos as $info)
+                <tr>      
+                    <th scope="row"> N/A</th>
+                    <th scope="row">{{ $info-> tipoDocumento }}</th>
+                    <th scope="row"> <a href="Dokus/{{ $info-> documento }}" target= "blank_" >{{ $info-> documento }}</a></th>
+                    <th scope="row">{{ $info-> created_at }}</th>
+                    <td>
+                        <form action="{{url('repositorio/'.$info-> id )}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Desea eliminar?')" value="Eliminar">
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
