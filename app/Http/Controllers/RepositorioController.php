@@ -12,9 +12,10 @@ class RepositorioController extends Controller
      */
     public function index()
     {
+        $datosAdicionales['infos'] = Repositorio_Documento::whereNull('id_estudiante')->get();
         $datosRepositorio['datos'] = Repositorio_Documento::join('estudiantes', 'estudiantes.id', '=', 'repositorio_documentos.id_estudiante')
               		->get(['estudiantes.NOMBREEST', 'estudiantes.APELLIDOEST', 'repositorio_documentos.id', 'repositorio_documentos.tipoDocumento', 'repositorio_documentos.documento', 'repositorio_documentos.created_at']);
-        return view('admin.repositorioDocs', $datosRepositorio);
+        return view('admin.repositorioDocs', $datosRepositorio, $datosAdicionales);
     }
 
     /**

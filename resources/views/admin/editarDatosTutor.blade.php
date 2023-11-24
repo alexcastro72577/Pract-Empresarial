@@ -65,6 +65,7 @@
     </style>
 </head>
 <body class="formato_gestion">
+    <button class="btn btn-primary active" onclick="location='/gestionDTT'" > Regresar </button>
     <div class="container">
         <br>
         <h2 class="titulo">Editar Datos</h2>

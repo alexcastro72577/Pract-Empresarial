@@ -52,6 +52,7 @@
     </style>
 </head>
 <body class="formato_gestion">
+    <button class="btn btn-primary active" onclick="location='/gestionDirector'" > Regresar </button>
     <div class="container">
         <h2 class="titulo">Editar Datos</h2>
         <form class="form_horizontal" method="post" action="{{url('/gestionDirector/'.$datosGeneral->id )}}" enctype="multipart/form-data">
