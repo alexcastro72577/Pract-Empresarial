@@ -13,10 +13,10 @@
         background-position: right, center left;
     }
     .titulo{
-        margin-left:340px
+        margin-left:250px
     }
     .segtitulo{
-        margin-left: 300px
+        margin-left: 270px
     }
     .form-horizontal{
         margin-top:70px;
@@ -37,14 +37,14 @@
         box-shadow: 5px 5px 10px gray;
     }
     .CI{
-        margin-left: 160px;
+        margin-left: 153px;
         width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
     }
     .seccionexp{
-        margin-left: 30px
+        margin-left: 40px
     }
     .exp{
         margin-left: 10px;
@@ -97,7 +97,7 @@
             </select></spán>
             <span class="error">* </span>
             <br><br>
-            <button type="submit" class="btn btn-primary b">Generar Carta</button>  
+            <button type="submit" class="btn btn-primary b">Generar Documento</button>  
         </form>
         </div>
     </body>
