@@ -58,6 +58,7 @@
     </style>
 </head>
 <body class="formato_gestion">
+    <button class="btn btn-primary active" onclick="location='/gestionDJD'" > Regresar </button>
     <div class="container">
         <br>
         <h2 class="titulo">Edición de</h2>
