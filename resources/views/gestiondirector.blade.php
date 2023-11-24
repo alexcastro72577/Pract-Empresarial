@@ -79,7 +79,7 @@
             Nuevo Director de Carrera: <input type="text" class="ndirector" name="nombreautoridad" value="" required>
             <span class="error">* </span>
             <br><br>
-            Género: <select class="genero" name="genero">
+            Género: <select class="genero" name="generoautoridad">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
