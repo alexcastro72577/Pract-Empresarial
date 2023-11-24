@@ -70,17 +70,14 @@ class DeclaracionJuradaController extends Controller
 
         $fecha = Carbon::now()->setTimezone('America/La_Paz');
         $fechaNombre = str_replace ( ":", ' ', $fecha);
-        // $estudiante = Estudiante::where('nombreest','=', $datosFormulario['nombreEst'])->first()->id;
-        $nombreDocumento = "Declaración Jurada de Percepción de Remuneración - ";
-        // ".$datosFormulario['nombDocente']." ".$datosFormulario['apellidosTutor']." - ".$fechaNombre.".pdf"
-
-        // Pdf::loadView('pdfdec_jur', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
-        // $datosRepo = request()->except('_token', 'Carrera', 'numGestion', 'anio','nombreEst', 'apellidoEst', 'genero', 'ci', 'exp', 'numMaterias', 'nombreProyecto', 'codCite', 'tutor');
-        // $datosRepo['id_estudiante'] = $estudiante;
-        // $datosRepo['tipoDocumento'] = "Declaración Jurada de Percepción de Remuneración";
-        // $datosRepo['documento'] = $nombreDocumento;
-        // $datosRepo['created_at'] = $fecha;
-        // Repositorio_Documento::insert($datosRepo);
+        $nombreDocumento = "Declaración Jurada de Percepción de Remuneración - ".$datosFormulario['tituloTutor']." ".$datosFormulario['nombreTutor']." - ".$fechaNombre.".pdf";
+        Pdf::loadView('pdfDecJurada', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
+        
+        $datosRepo = request()->except('_token', 'nombDocente', 'remuneracion', 'ci', 'exp');
+        $datosRepo['tipoDocumento'] = "Declaración Jurada de Percepción de Remuneración";
+        $datosRepo['documento'] = $nombreDocumento;
+        $datosRepo['created_at'] = $fecha;
+        Repositorio_Documento::insert($datosRepo);
 
         return Pdf::loadView('pdfDecJurada', ['nombre'=>$datosFormulario])->stream($nombreDocumento);
     }
