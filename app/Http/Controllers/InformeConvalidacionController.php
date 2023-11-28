@@ -69,7 +69,7 @@ class InformeConvalidacionController extends Controller
             $carreraB = "LIC. EN ING. DE SISTEMAS";
         }
         else {
-            $carreraB = "LIC. EN ING. INFORMATICA";
+            $carreraB = "LIC. EN ING. INFORMÁTICA";
         }
 
         $datosFormulario['Carrera']=$carrera;

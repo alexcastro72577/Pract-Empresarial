@@ -59,6 +59,7 @@ class DeclaracionJuradaController extends Controller
         ];
         $mes_texto=$mes_year[$fecha_mes];
         $mes_serv=$mes_año[$fecha_mes];
+        
 
         $datosFormulario['nombreTutor']=$nombreTutor;
         $datosFormulario['tituloTutor']=$tituloTutor;
@@ -73,7 +74,7 @@ class DeclaracionJuradaController extends Controller
         $nombreDocumento = "Declaración Jurada de Percepción de Remuneración - ".$datosFormulario['tituloTutor']." ".$datosFormulario['nombreTutor']." - ".$fechaNombre.".pdf";
         Pdf::loadView('pdfDecJurada', ['nombre'=>$datosFormulario])->save(public_path().'/Dokus/'.$nombreDocumento);
         
-        $datosRepo = request()->except('_token', 'nombDocente', 'remuneracion', 'ci', 'exp');
+        $datosRepo = request()->except('_token', 'nombDocente', 'remuneracion', 'ci', 'exp', 'nombInstitucion', 'cargo', 'monto', 'lang');
         $datosRepo['tipoDocumento'] = "Declaración Jurada de Percepción de Remuneración";
         $datosRepo['documento'] = $nombreDocumento;
         $datosRepo['created_at'] = $fecha;

@@ -3,6 +3,16 @@
 @section('content')
 
     <head>
+    <script>
+    function hideShowDiv(val){
+        if(val==2){
+            document.getElementById('div').style.display='none';
+        }
+        if(val==1){
+            document.getElementById('div').style.display='block';
+        }
+    }
+    </script>
     <style>
 
     .formato_general{
@@ -34,7 +44,7 @@
         margin-left: 10px;
         border-radius: 5px;
         border:2px solid;
-        box-shadow: 5px 5px 10px gray;
+        box-shadow: 5px 5px 10px gray
     }
     .CI{
         margin-left: 153px;
@@ -48,6 +58,28 @@
     }
     .exp{
         margin-left: 10px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .div{
+        display: none
+    }
+    .nombInstitucion{
+        margin-left: 12px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .cargo{
+        margin-left: 138px;
+        border-radius: 5px;
+        border:2px solid;
+        box-shadow: 5px 5px 10px gray
+    }
+    .monto{
+        margin-left: 68px;
+        width:90px;
         border-radius: 5px;
         border:2px solid;
         box-shadow: 5px 5px 10px gray
@@ -96,6 +128,22 @@
                 <option value="BNI">BNI</option>
             </select></spán>
             <span class="error">* </span>
+            <br><br>
+            <b>Percibe de un Instituto Público extra?</b>
+            <br><br>
+            <input type="radio" value="hide" onclick="hideShowDiv(1)" name="lang"> SI
+            <input type="radio" value="hide" onclick="hideShowDiv(2)" name="lang"> NO
+            <br><br>
+            <div id="div" class="div">
+                Nombre de la Institución:<input type="text" class="nombInstitucion" name="nombInstitucion" value="-">
+                <span class="error">* </span>
+                <br><br>
+                Cargo:<input type="text" class="cargo" name="cargo" value="-">
+                <span class="error">* </span>
+                <br><br>
+                Monto Percibido:<input type="text" class="monto" name="monto" value="-">
+                <span class="error">* </span>
+            </div>
             <br><br>
             <button type="submit" class="btn btn-primary b">Generar Documento</button>  
         </form>
