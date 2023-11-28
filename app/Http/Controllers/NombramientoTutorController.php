@@ -71,7 +71,7 @@ class NombramientoTutorController extends Controller
             $genero_gramatical = "a";
         }
 
-        if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
+        if ($datosFormulario['Carrera'] == "Ingeniería de Sistemas") {
             $codigo_carrera = "SIS";
         }
         else {

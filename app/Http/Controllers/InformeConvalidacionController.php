@@ -65,11 +65,11 @@ class InformeConvalidacionController extends Controller
 
         
 
-        if ($datosFormulario['Carrera'] == "Ingenieria de Sistemas") {
+        if ($datosFormulario['Carrera'] == "Ingeniería de Sistemas") {
             $carreraB = "LIC. EN ING. DE SISTEMAS";
         }
         else {
-            $carreraB = "LIC. EN ING. INFORMATICA";
+            $carreraB = "LIC. EN ING. INFORMÁTICA";
         }
 
         $datosFormulario['Carrera']=$carrera;

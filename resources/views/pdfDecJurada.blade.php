@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    
     <style>
         .titulo{
             font-size: 14px;
@@ -46,9 +47,19 @@
         .centro{
             text-align: center
         }
+        .centroInst{
+            text-align: center;
+            text-transform: uppercase
+        }
         .th,td{
             border: 1px solid #000;
             font-size: 10px 
+        }
+        .td_especial{
+            border-top: 1px solid #FFFFFF;
+            border-left: 1px solid #FFFFFF;
+            border-right: 1px solid #FFFFFF;
+            font-size:10px
         }
     </style>
 </head>
@@ -157,19 +168,25 @@
     </span>
     <br>
     <b class='texto_aviso'>.</b>
-    <span class='texto'><b>B.- INSTITUCIÓN PÚBLICA I</b></span>
+    
     <table>
+        <tr class='td_especial'>
+            <td class='td_especial'><span class='texto'><b>B.- INSTITUCIÓN PÚBLICA I</b></span></td>
+            <td class='td_especial'><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa-</b><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
+            <td class='td_especial'> </td>
+            <td class='td_especial'><b class='relleno'>aaaaaaaaaaa-</b><b class='relleno'>aaaaaaaaaaa</b></td>
+        </tr>
         <tr>
             <td><b class='relleno'>a</b>Nombre de la Institución Pública<b class='relleno'>aaa</b></td>
-            <td><b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaaaaaaaaaaaaaaaa</b></td>
+            <td class='centroInst'>{{ $nombre['nombInstitucion']}}</td>
             <td class='centro'> </td>
             <td><b class='relleno'>aaaaaaaaaaa</b>-<b class='relleno'>aaaaaaaaaaa</b></td>
         </tr>
         <tr>
             <td class='cargo'>Cargo:<b class='relleno'>aaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> {{ $nombre['cargo']}} </td>
             <td><b class='relleno'>a</b>Total, Ganado (Bs.):<b class='relleno'>aaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> {{ $nombre['monto']}} </td>
         </tr>
     </table>
     <span class='texto'><b>C.- INSTITUCIÓN PÚBLICA II</b></span>
@@ -220,7 +237,7 @@
             <td> </td>
             <td> </td>
             <td><b class='relleno'>a</b>SUMAS TOTALES:<b class='relleno'>aaa</b></td>
-            <td class='centro'> - </td>
+            <td class='centro'> {{ $nombre['monto']}} </td>
         </tr>
     </table>
     <span class='text_footer'>
