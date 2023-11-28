@@ -55,16 +55,16 @@
     <button class="btn btn-primary active" onclick="location='/gestionDirector'" > Regresar </button>
     <div class="container">
         <h2 class="titulo">Editar Datos</h2>
-        <form class="form_horizontal" method="post" action="{{url('/gestionDirector/'.$datosGeneral->id )}}" enctype="multipart/form-data">
+        <form class="form_horizontal" method="post" action="{{url('/gestionDirector/'.$id )}}" enctype="multipart/form-data">
         @csrf
         {{method_field('PATCH')}}
             Nombre Director de Carrera: <input type="text" class="ndirector" name="NOMBREAUTORIDAD" value=" {{ $datosGeneral->NOMBREAUTORIDAD }}" required>
             <span class="error">* </span>
             <br><br>
-            Nombre de la Materia de Egreso: <input type="text" class="nmateria" name="NOMBMATEG" value=" {{ $datosMateria->NOMBMATEG }}" required>
+            Nombre de la Materia de Egreso: <input type="text" class="nmateria" name="NOMBMATEG" value=" {{ $datosGeneral->NOMBMATEG }}" required>
             <span class="error">* </span>
             <br><br>
-            Nombre de la Carrera: <input type="text" class="ncarrera" name="NOMBRECARRERA" value=" {{ $datosCarrera->NOMBRECARRERA }}" required>
+            Nombre de la Carrera: <input type="text" class="ncarrera" name="NOMBRECARRERA" value=" {{ $datosGeneral->NOMBRECARRERA }}" required>
             <span class="error">* </span>
             <br><br>
             <button type="submit" class="btn btn-primary">Guardar Datos</button>

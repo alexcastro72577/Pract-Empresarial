@@ -56,10 +56,11 @@ class GestionDirectorController extends Controller
      */
     public function edit(string $id)
     {
-        $datosGeneral = Autoridad::findOrFail($id);
-        $datosCarrera = Carrera::findOrFail($id);
-        $datosMateria = Materia_Egreso::findOrFail($id);
-        return view('admin.editarDatosDirector', compact('datosGeneral', 'datosCarrera', 'datosMateria'));
+        // $idDirector = $id;
+        $datosGeneral = Autoridad::join('carreras', 'carreras.id', '=', 'autoridades.ID_CARRERA')
+                            ->join('materias_egreso', 'materias_egreso.id', '=', 'carreras.ID_MATERIA')->findOrFail($id);
+        
+        return view('admin.editarDatosDirector', compact('datosGeneral', 'id'));
     }
 
     /**
@@ -72,8 +73,10 @@ class GestionDirectorController extends Controller
         $datosMateria = request()->except('_token', '_method', 'NOMBREAUTORIDAD', 'NOMBRECARRERA');
 
         Autoridad::where('id', '=', $id)->update($datosDirector);
-        Carrera::where('id', '=', $id)->update($datosCarrera);
-        Materia_Egreso::where('id', '=', $id)->update($datosMateria);
+        $idCarrera = Autoridad::where('id', '=', $id)->first()->ID_CARRERA;
+        $idMateria = Carrera::where('id', '=', $idCarrera)->first()->ID_MATERIA;
+        Carrera::where('id', '=', $idCarrera)->update($datosCarrera);
+        Materia_Egreso::where('id', '=', $idMateria)->update($datosMateria);
         
         return redirect('gestionDirector');
     }
@@ -83,9 +86,11 @@ class GestionDirectorController extends Controller
      */
     public function destroy(string $id)
     {
+        $idCarrera = Autoridad::where('id', '=', $id)->first()->ID_CARRERA;
+        $idMateria = Carrera::where('id', '=', $idCarrera)->first()->ID_MATERIA;
         Autoridad::destroy($id);
-        Carrera::destroy($id);
-        Materia_Egreso::destroy($id);
+        Carrera::destroy($idCarrera);
+        Materia_Egreso::destroy($idMateria);
         return redirect('gestionDirector');
     }
 }
