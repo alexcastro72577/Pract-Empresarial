@@ -111,7 +111,7 @@
             </select>
             <span class="error">*</span>
             <br><br>
-            Remuneración Percibida: <input type="text" class="remuneracion" name="remuneracion" value="" required>
+            Remuneración Percibida: <input type="number" class="remuneracion" name="remuneracion" value="" required>
             <span class="error">* </span>
             <br><br>
             C.I.: <input type="text" class="CI" name="ci" value="" required>
@@ -135,13 +135,13 @@
             <input type="radio" value="hide" onclick="hideShowDiv(2)" name="lang"> NO
             <br><br>
             <div id="div" class="div">
-                Nombre de la Institución:<input type="text" class="nombInstitucion" name="nombInstitucion" value="-">
+                Nombre de la Institución:<input type="text" class="nombInstitucion" name="nombInstitucion" value="">
                 <span class="error">* </span>
                 <br><br>
-                Cargo:<input type="text" class="cargo" name="cargo" value="-">
+                Cargo:<input type="text" class="cargo" name="cargo" value="">
                 <span class="error">* </span>
                 <br><br>
-                Monto Percibido:<input type="text" class="monto" name="monto" value="-">
+                Monto Percibido:<input type="number" class="monto" name="monto" value="">
                 <span class="error">* </span>
             </div>
             <br><br>
