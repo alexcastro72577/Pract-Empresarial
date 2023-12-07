@@ -59,6 +59,15 @@ class DeclaracionJuradaController extends Controller
         ];
         $mes_texto=$mes_year[$fecha_mes];
         $mes_serv=$mes_año[$fecha_mes];
+
+        if (empty($datosFormulario['monto'])){
+            $montovalor = 0;
+            $datosFormulario['monto'] = "-";
+        }
+        else{
+            $montovalor = $datosFormulario['monto'];
+        }
+        $sumatotal = $montovalor + $datosFormulario['remuneracion'];
         
 
         $datosFormulario['nombreTutor']=$nombreTutor;
@@ -68,6 +77,8 @@ class DeclaracionJuradaController extends Controller
         $datosFormulario['mesServicio']=$mes_serv;
         $datosFormulario['mesNum']=$fecha_mes;
         $datosFormulario['año']=$fecha_year;
+        $datosFormulario['montovalor']=$montovalor;
+        $datosFormulario['sumatotal']=$sumatotal;
 
         $fecha = Carbon::now()->setTimezone('America/La_Paz');
         $fechaNombre = str_replace ( ":", ' ', $fecha);

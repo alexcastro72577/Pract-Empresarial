@@ -102,7 +102,7 @@
         </tr>
         <tr>
             <td>1) Docente</td>
-            <td>{{ $nombre['remuneracion']}}</td>
+            <td class="centro">{{ $nombre['remuneracion']}}</td>
             <td>{{ $nombre['mesServicio']}}</td>
         </tr>
         <tr>
@@ -237,7 +237,7 @@
             <td> </td>
             <td> </td>
             <td><b class='relleno'>a</b>SUMAS TOTALES:<b class='relleno'>aaa</b></td>
-            <td class='centro'> {{ $nombre['monto']}} </td>
+            <td class='centro'> {{ $nombre['sumatotal']}} </td>
         </tr>
     </table>
     <span class='text_footer'>
